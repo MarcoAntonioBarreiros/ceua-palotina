@@ -108,6 +108,9 @@
       align-items:center;
       gap:clamp(26px, 5vw, 64px);
     }
+    .ceua-hero-grid > *,
+    .ceua-brandline > div,
+    .ceua-hero-panel { min-width:0; max-width:100%; }
 
     .ceua-brandline {
       display:flex;
@@ -839,9 +842,19 @@
       .ceua-page { width:min(100% - 18px, 1180px); margin-top:9px; }
       .ceua-hero { min-height:auto; padding:25px 21px 50px; border-radius:22px; }
       .ceua-brandline { align-items:flex-start; }
+      .ceua-kicker, .ceua-institution { overflow-wrap:anywhere; }
       .ceua-logo-wrap { flex-basis:64px; width:64px; height:64px; border-radius:18px; }
       .ceua-logo-wrap img { width:52px; height:52px; }
+      .ceua-hero h1,
+      .ceua-hero h1 span {
+        max-width:100%;
+        overflow-wrap:anywhere;
+        word-break:normal;
+        hyphens:auto;
+      }
       .ceua-hero h1 { font-size:clamp(2.35rem, 14vw, 4rem); }
+      .ceua-hero-lead { max-width:100%; overflow-wrap:break-word; }
+      .ceua-hero-panel { width:100%; }
       .ceua-actions { flex-direction:column; }
       .ceua-actions .ceua-btn { width:100%; }
       .ceua-priority { grid-template-columns:1fr; margin:-27px 12px 0; }
