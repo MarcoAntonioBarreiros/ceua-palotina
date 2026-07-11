@@ -1,0 +1,1475 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Página da Comissão de Ética no Uso de Animais da UFPR - Setor Palotina.">
+  <title>CEUA/Palotina - UFPR</title>
+</head>
+<body>
+<!-- CEUA/Palotina · versão Elementor: cole TODO este conteúdo no widget HTML do Elementor, não no Editor de texto. -->
+<style>
+    /*
+      CEUA/Palotina — layout autocontido · versão 2
+      Todos os seletores foram prefixados para reduzir conflitos com temas WordPress.
+    */
+    .ceua-page {
+      --ceua-navy-950:#071f33;
+      --ceua-navy-900:#0a2d48;
+      --ceua-navy-800:#0d4168;
+      --ceua-navy-700:#155786;
+      --ceua-teal-700:#0f6d75;
+      --ceua-teal-600:#12838c;
+      --ceua-green-700:#26704b;
+      --ceua-green-600:#31845d;
+      --ceua-amber-700:#a64f08;
+      --ceua-amber-600:#cf6b13;
+      --ceua-red-700:#a73b35;
+      --ceua-ink:#172534;
+      --ceua-muted:#607080;
+      --ceua-line:#dce5eb;
+      --ceua-surface:#ffffff;
+      --ceua-soft:#f4f8fa;
+      --ceua-soft-blue:#eef6fb;
+      --ceua-soft-green:#eef8f2;
+      --ceua-soft-amber:#fff7e8;
+      --ceua-shadow:0 20px 50px rgba(7,31,51,.11);
+      --ceua-shadow-sm:0 9px 26px rgba(7,31,51,.09);
+      --ceua-radius-xl:28px;
+      --ceua-radius-lg:20px;
+      --ceua-radius-md:14px;
+      --ceua-radius-sm:10px;
+    }
+
+    .ceua-page { scroll-behavior:smooth; }
+
+    .ceua-page,
+    .ceua-page * { box-sizing:border-box; }
+
+    .ceua-page {
+      width:min(1180px, calc(100% - 28px));
+      margin:24px auto 56px;
+      color:var(--ceua-ink);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size:16px;
+      line-height:1.68;
+      position:relative;
+      isolation:isolate;
+    }
+
+    .ceua-page a { color:inherit; }
+    .ceua-page img { max-width:100%; }
+    .ceua-page strong { color:inherit; }
+
+    .ceua-skip {
+      position:absolute;
+      left:-9999px;
+      top:8px;
+      z-index:999;
+      padding:10px 14px;
+      border-radius:8px;
+      background:#fff;
+      color:var(--ceua-navy-900);
+      box-shadow:var(--ceua-shadow-sm);
+    }
+    .ceua-skip:focus { left:12px; }
+
+    .ceua-hero {
+      position:relative;
+      overflow:hidden;
+      min-height:440px;
+      padding:clamp(28px, 5vw, 62px);
+      border-radius:var(--ceua-radius-xl);
+      color:#fff;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(98,219,184,.22) 0 12%, transparent 13%),
+        radial-gradient(circle at 73% 78%, rgba(255,255,255,.09) 0 18%, transparent 19%),
+        linear-gradient(135deg, var(--ceua-navy-950) 0%, var(--ceua-navy-800) 52%, var(--ceua-teal-700) 100%);
+      box-shadow:var(--ceua-shadow);
+    }
+
+    .ceua-hero::before,
+    .ceua-hero::after {
+      content:"";
+      position:absolute;
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:999px;
+      pointer-events:none;
+    }
+    .ceua-hero::before { width:330px; height:330px; right:-100px; top:-150px; }
+    .ceua-hero::after { width:220px; height:220px; right:90px; bottom:-145px; }
+
+    .ceua-hero-grid {
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) 300px;
+      align-items:center;
+      gap:clamp(26px, 5vw, 64px);
+    }
+
+    .ceua-brandline {
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:26px;
+    }
+
+    .ceua-logo-wrap {
+      display:grid;
+      place-items:center;
+      flex:0 0 78px;
+      width:78px;
+      height:78px;
+      padding:7px;
+      border:1px solid rgba(255,255,255,.3);
+      border-radius:22px;
+      background:rgba(255,255,255,.95);
+      box-shadow:0 12px 30px rgba(0,0,0,.18);
+      transform:rotate(-2deg);
+    }
+    .ceua-logo-wrap { position:relative; }
+    .ceua-logo-fallback {
+      position:absolute;
+      inset:7px;
+      display:grid;
+      place-items:center;
+      border-radius:15px;
+      background:linear-gradient(145deg, var(--ceua-navy-900), var(--ceua-teal-700));
+      color:#fff;
+      font-size:.72rem;
+      font-weight:950;
+      letter-spacing:.05em;
+    }
+    .ceua-logo-wrap img { position:relative; z-index:1; width:64px; height:64px; object-fit:cover; border-radius:15px; }
+
+    .ceua-kicker {
+      margin:0 0 4px;
+      color:#bfe8dc;
+      font-size:.78rem;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .ceua-institution { margin:0; color:rgba(255,255,255,.76); font-size:.93rem; }
+
+    .ceua-hero h1 {
+      max-width:760px;
+      margin:0;
+      font-size:clamp(2.35rem, 6vw, 5.25rem);
+      line-height:.98;
+      letter-spacing:-.055em;
+      text-wrap:balance;
+    }
+    .ceua-hero h1 span { display:block; color:#8ee0c8; }
+
+    .ceua-hero-lead {
+      max-width:720px;
+      margin:24px 0 0;
+      color:rgba(255,255,255,.82);
+      font-size:clamp(1rem, 2vw, 1.18rem);
+      line-height:1.65;
+    }
+
+    .ceua-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:30px;
+    }
+
+    .ceua-btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      min-height:48px;
+      padding:12px 18px;
+      border:1px solid transparent;
+      border-radius:12px;
+      text-decoration:none !important;
+      font-size:.95rem;
+      font-weight:800;
+      line-height:1.2;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .ceua-btn:hover { transform:translateY(-2px); }
+    .ceua-btn:focus-visible { outline:3px solid rgba(142,224,200,.55); outline-offset:3px; }
+    .ceua-btn-primary { background:#fff; color:var(--ceua-navy-900) !important; box-shadow:0 10px 25px rgba(0,0,0,.18); }
+    .ceua-btn-secondary { border-color:rgba(255,255,255,.33); background:rgba(255,255,255,.1); color:#fff !important; backdrop-filter:blur(8px); }
+    .ceua-btn-dark { background:var(--ceua-navy-900); color:#fff !important; }
+    .ceua-btn-green { background:var(--ceua-green-700); color:#fff !important; }
+    .ceua-btn-ghost { border-color:var(--ceua-line); background:#fff; color:var(--ceua-navy-800) !important; }
+
+    .ceua-hero-panel {
+      align-self:stretch;
+      color:#fff !important;
+      text-decoration:none !important;
+      transition:transform .2s ease, background .2s ease, border-color .2s ease;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:22px;
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:22px;
+      background:rgba(4,28,44,.33);
+      backdrop-filter:blur(11px);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+    }
+    .ceua-hero-panel:hover { transform:translateY(-3px); background:rgba(4,28,44,.46); border-color:rgba(255,255,255,.31); }
+    .ceua-hero-panel:focus-visible { outline:3px solid rgba(142,224,200,.65); outline-offset:4px; }
+    .ceua-hero-panel-link { display:inline-flex; align-items:center; gap:7px; margin-top:18px; color:#bfe8dc; font-size:.8rem; font-weight:850; letter-spacing:.04em; }
+    .ceua-hero-panel-label {
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin:0 0 12px;
+      color:#8ee0c8;
+      font-size:.75rem;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .ceua-pulse {
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:#8ee0c8;
+      box-shadow:0 0 0 0 rgba(142,224,200,.65);
+      animation:ceuaPulse 2.2s infinite;
+    }
+    @keyframes ceuaPulse {
+      70% { box-shadow:0 0 0 10px rgba(142,224,200,0); }
+      100% { box-shadow:0 0 0 0 rgba(142,224,200,0); }
+    }
+    .ceua-next-date { margin:0; font-size:2.1rem; line-height:1.1; font-weight:900; letter-spacing:-.04em; }
+    .ceua-next-meta { margin:8px 0 0; color:rgba(255,255,255,.72); font-size:.9rem; }
+    .ceua-countdown {
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:9px;
+      margin-top:20px;
+    }
+    .ceua-countdown div {
+      padding:12px;
+      border-radius:13px;
+      background:rgba(255,255,255,.08);
+    }
+    .ceua-countdown strong { display:block; font-size:1.3rem; line-height:1; }
+    .ceua-countdown span { display:block; margin-top:5px; color:rgba(255,255,255,.65); font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; }
+
+    .ceua-priority {
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:12px;
+      margin:-32px 34px 0;
+      position:relative;
+      z-index:2;
+    }
+
+    .ceua-priority-card {
+      display:flex;
+      min-height:132px;
+      flex-direction:column;
+      justify-content:space-between;
+      padding:20px;
+      border:1px solid rgba(220,229,235,.9);
+      border-radius:18px;
+      background:rgba(255,255,255,.97);
+      color:var(--ceua-ink) !important;
+      text-decoration:none !important;
+      box-shadow:var(--ceua-shadow-sm);
+      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .ceua-priority-card:hover { transform:translateY(-5px); box-shadow:0 18px 36px rgba(7,31,51,.14); border-color:#b6d4df; }
+    .ceua-priority-top { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
+    .ceua-priority-icon {
+      display:grid;
+      place-items:center;
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      background:var(--ceua-soft-blue);
+      color:var(--ceua-navy-700);
+    }
+    .ceua-priority-card:nth-child(2) .ceua-priority-icon { background:var(--ceua-soft-green); color:var(--ceua-green-700); }
+    .ceua-priority-card:nth-child(3) .ceua-priority-icon { background:var(--ceua-soft-amber); color:var(--ceua-amber-700); }
+    .ceua-priority-card:nth-child(4) .ceua-priority-icon { background:#f1effb; color:#6047a8; }
+    .ceua-priority-arrow { color:#91a0ad; font-size:1.25rem; transition:transform .2s ease; }
+    .ceua-priority-card:hover .ceua-priority-arrow { transform:translate(3px,-3px); }
+    .ceua-priority-card strong { display:block; margin-top:18px; font-size:1rem; line-height:1.2; }
+    .ceua-priority-card small { display:block; margin-top:5px; color:var(--ceua-muted); line-height:1.35; }
+
+    .ceua-sticky-nav {
+      position:sticky;
+      top:10px;
+      z-index:50;
+      display:flex;
+      align-items:center;
+      gap:7px;
+      width:max-content;
+      max-width:calc(100% - 24px);
+      margin:30px auto 0;
+      padding:7px;
+      overflow-x:auto;
+      border:1px solid rgba(220,229,235,.95);
+      border-radius:999px;
+      background:rgba(255,255,255,.9);
+      box-shadow:0 9px 26px rgba(7,31,51,.10);
+      backdrop-filter:blur(12px);
+      scrollbar-width:none;
+    }
+    .ceua-sticky-nav::-webkit-scrollbar { display:none; }
+    .ceua-sticky-nav a {
+      flex:0 0 auto;
+      padding:9px 13px;
+      border-radius:999px;
+      color:#526473;
+      text-decoration:none !important;
+      font-size:.82rem;
+      font-weight:750;
+      transition:background .2s ease, color .2s ease;
+    }
+    .ceua-sticky-nav a:hover,
+    .ceua-sticky-nav a.is-active { background:var(--ceua-navy-900); color:#fff; }
+
+    .ceua-main { margin-top:56px; }
+
+    .ceua-section {
+      scroll-margin-top:88px;
+      margin:0 0 68px;
+    }
+
+    .ceua-section-head {
+      display:grid;
+      grid-template-columns:auto minmax(0,1fr);
+      align-items:start;
+      gap:18px;
+      margin-bottom:28px;
+    }
+    .ceua-section-number {
+      display:grid;
+      place-items:center;
+      width:52px;
+      height:52px;
+      border-radius:16px;
+      background:var(--ceua-navy-900);
+      color:#fff;
+      font-size:.82rem;
+      font-weight:900;
+      letter-spacing:.08em;
+      box-shadow:0 10px 22px rgba(10,45,72,.18);
+    }
+    .ceua-section[data-tone="green"] .ceua-section-number { background:var(--ceua-green-700); }
+    .ceua-section[data-tone="amber"] .ceua-section-number { background:var(--ceua-amber-700); }
+    .ceua-section[data-tone="purple"] .ceua-section-number { background:#6047a8; }
+    .ceua-section-kicker { margin:0 0 5px; color:var(--ceua-teal-700); font-size:.75rem; font-weight:850; letter-spacing:.13em; text-transform:uppercase; }
+    .ceua-section[data-tone="green"] .ceua-section-kicker { color:var(--ceua-green-700); }
+    .ceua-section[data-tone="amber"] .ceua-section-kicker { color:var(--ceua-amber-700); }
+    .ceua-section[data-tone="purple"] .ceua-section-kicker { color:#6047a8; }
+    .ceua-section h2 { margin:0; color:var(--ceua-navy-950); font-size:clamp(1.7rem, 4vw, 2.7rem); line-height:1.08; letter-spacing:-.035em; text-wrap:balance; }
+    .ceua-section-subtitle { max-width:830px; margin:10px 0 0; color:var(--ceua-muted); font-size:1rem; }
+
+    .ceua-intro-grid {
+      display:grid;
+      grid-template-columns:minmax(0, 1.5fr) minmax(280px, .7fr);
+      gap:22px;
+      align-items:start;
+    }
+
+    .ceua-feature-card,
+    .ceua-panel,
+    .ceua-alert,
+    .ceua-calendar-feature,
+    .ceua-doc-group {
+      border:1px solid var(--ceua-line);
+      border-radius:var(--ceua-radius-lg);
+      background:var(--ceua-surface);
+      box-shadow:var(--ceua-shadow-sm);
+    }
+
+    .ceua-feature-card { padding:clamp(22px, 4vw, 34px); }
+    .ceua-feature-card p:first-child { margin-top:0; }
+    .ceua-feature-card p:last-child { margin-bottom:0; }
+
+    .ceua-callout {
+      padding:22px;
+      border-radius:var(--ceua-radius-lg);
+      background:linear-gradient(145deg, var(--ceua-navy-900), var(--ceua-navy-700));
+      color:#fff;
+      box-shadow:var(--ceua-shadow-sm);
+    }
+    .ceua-callout-green { background:linear-gradient(145deg, #235e44, #33865f); }
+    .ceua-callout-label { margin:0 0 8px; color:#8ee0c8; font-size:.75rem; font-weight:850; letter-spacing:.11em; text-transform:uppercase; }
+    .ceua-callout h3 { margin:0; color:#fff; font-size:1.35rem; line-height:1.2; }
+    .ceua-callout p { margin:12px 0 0; color:rgba(255,255,255,.78); }
+    .ceua-callout .ceua-btn { width:100%; margin-top:18px; }
+    .ceua-contact-line { margin:13px 0 0 !important; font-size:.86rem; overflow-wrap:anywhere; }
+    .ceua-contact-line a { color:#fff; font-weight:800; }
+
+    .ceua-stat-row {
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:10px;
+      margin-top:24px;
+    }
+    .ceua-stat {
+      padding:15px;
+      border:1px solid var(--ceua-line);
+      border-radius:13px;
+      background:var(--ceua-soft);
+    }
+    .ceua-stat strong { display:block; color:var(--ceua-navy-900); font-size:1.35rem; line-height:1.1; }
+    .ceua-stat span { display:block; margin-top:5px; color:var(--ceua-muted); font-size:.76rem; line-height:1.25; }
+
+    .ceua-accordion-stack { display:grid; gap:12px; margin-top:22px; }
+    .ceua-accordion {
+      overflow:hidden;
+      border:1px solid var(--ceua-line);
+      border-radius:15px;
+      background:#fff;
+      transition:border-color .2s ease, box-shadow .2s ease;
+    }
+    .ceua-accordion[open] { border-color:#b7d1dd; box-shadow:0 10px 28px rgba(7,31,51,.08); }
+    .ceua-accordion summary {
+      display:flex;
+      align-items:center;
+      gap:13px;
+      padding:17px 18px;
+      list-style:none;
+      cursor:pointer;
+      color:var(--ceua-navy-900);
+      font-weight:850;
+      line-height:1.35;
+    }
+    .ceua-accordion summary::-webkit-details-marker { display:none; }
+    .ceua-accordion summary::after {
+      content:"+";
+      display:grid;
+      place-items:center;
+      width:28px;
+      height:28px;
+      margin-left:auto;
+      border-radius:9px;
+      background:var(--ceua-soft-blue);
+      color:var(--ceua-navy-700);
+      font-size:1.15rem;
+      transition:transform .2s ease;
+    }
+    .ceua-accordion[open] summary::after { content:"−"; transform:rotate(180deg); }
+    .ceua-step-badge {
+      display:grid;
+      place-items:center;
+      flex:0 0 31px;
+      width:31px;
+      height:31px;
+      border-radius:9px;
+      background:var(--ceua-navy-900);
+      color:#fff;
+      font-size:.78rem;
+      font-weight:900;
+    }
+    .ceua-accordion-body { padding:0 20px 20px 62px; color:#41515f; }
+    .ceua-accordion-body > :first-child { margin-top:0; }
+    .ceua-accordion-body > :last-child { margin-bottom:0; }
+
+    .ceua-list { margin:10px 0 0; padding:0; list-style:none; }
+    .ceua-list li { position:relative; margin:10px 0; padding-left:27px; }
+    .ceua-list li::before {
+      content:"✓";
+      position:absolute;
+      left:0;
+      top:.12em;
+      display:grid;
+      place-items:center;
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      background:#dff3e7;
+      color:var(--ceua-green-700);
+      font-size:.67rem;
+      font-weight:950;
+    }
+
+    .ceua-warning {
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:14px;
+      margin-top:22px;
+      padding:20px;
+      border:1px solid #efcf98;
+      border-radius:16px;
+      background:var(--ceua-soft-amber);
+      color:#69400c;
+    }
+    .ceua-warning-icon {
+      display:grid;
+      place-items:center;
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background:#f8dca9;
+      color:#80500d;
+      font-size:1.1rem;
+      font-weight:900;
+    }
+    .ceua-warning h3 { margin:0 0 8px; color:#704209; font-size:1rem; }
+    .ceua-warning ul { margin:0; padding-left:19px; }
+    .ceua-warning li { margin:7px 0; }
+
+    .ceua-source { margin:11px 0 0; color:#83909b; font-size:.76rem; font-style:italic; }
+
+    .ceua-timeline {
+      position:relative;
+      display:grid;
+      grid-template-columns:repeat(5, 1fr);
+      gap:13px;
+      margin-top:24px;
+    }
+    .ceua-timeline::before {
+      content:"";
+      position:absolute;
+      top:33px;
+      left:8%;
+      right:8%;
+      height:2px;
+      background:linear-gradient(90deg, var(--ceua-green-600), #8dc6a6);
+      z-index:0;
+    }
+    .ceua-timeline-step {
+      position:relative;
+      z-index:1;
+      padding:0 0 18px;
+      border:1px solid var(--ceua-line);
+      border-radius:16px;
+      background:#fff;
+      overflow:hidden;
+      box-shadow:0 8px 22px rgba(7,31,51,.06);
+    }
+    .ceua-timeline-dot {
+      display:grid;
+      place-items:center;
+      width:46px;
+      height:46px;
+      margin:10px auto 14px;
+      border:6px solid #fff;
+      border-radius:50%;
+      background:var(--ceua-green-700);
+      color:#fff;
+      font-size:.78rem;
+      font-weight:900;
+      box-shadow:0 0 0 2px #a8d4b9;
+    }
+    .ceua-timeline-step h3 { margin:0; padding:0 15px; color:var(--ceua-green-700); font-size:.94rem; line-height:1.3; text-align:center; }
+    .ceua-timeline-step p { margin:9px 0 0; padding:0 15px; color:var(--ceua-muted); font-size:.82rem; line-height:1.45; text-align:center; }
+
+    .ceua-sequence {
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:8px;
+      margin-top:14px;
+    }
+    .ceua-sequence span {
+      padding:8px 11px;
+      border-radius:999px;
+      background:var(--ceua-soft-green);
+      color:var(--ceua-green-700);
+      font-size:.78rem;
+      font-weight:850;
+    }
+    .ceua-sequence b { color:#9aa7b0; }
+
+    .ceua-alert-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; }
+    .ceua-alert {
+      position:relative;
+      overflow:hidden;
+      padding:22px 22px 22px 74px;
+      box-shadow:none;
+    }
+    .ceua-alert::before {
+      content:attr(data-number);
+      position:absolute;
+      left:18px;
+      top:20px;
+      display:grid;
+      place-items:center;
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background:var(--ceua-soft-amber);
+      color:var(--ceua-amber-700);
+      font-size:.83rem;
+      font-weight:900;
+    }
+    .ceua-alert h3 { margin:0 0 8px; color:#6d3c09; font-size:1.02rem; }
+    .ceua-alert p { margin:0; color:#5b4a39; font-size:.92rem; line-height:1.6; }
+    .ceua-alert-wide { grid-column:1 / -1; }
+
+    .ceua-calendar-layout {
+      display:grid;
+      grid-template-columns:340px minmax(0,1fr);
+      gap:18px;
+    }
+    .ceua-calendar-feature {
+      padding:28px;
+      color:#fff;
+      background:linear-gradient(150deg, var(--ceua-green-700), #1d5e49);
+      border:none;
+    }
+    .ceua-calendar-feature .ceua-calendar-label { margin:0; color:#bce7d0; font-size:.75rem; font-weight:850; letter-spacing:.12em; text-transform:uppercase; }
+    .ceua-calendar-feature .ceua-calendar-day { margin:17px 0 0; font-size:4.5rem; font-weight:950; line-height:.88; letter-spacing:-.07em; }
+    .ceua-calendar-feature .ceua-calendar-month { margin:8px 0 0; font-size:1.4rem; font-weight:850; text-transform:capitalize; }
+    .ceua-calendar-feature .ceua-calendar-weekday { margin:3px 0 0; color:rgba(255,255,255,.72); }
+    .ceua-calendar-feature hr { margin:24px 0; border:0; border-top:1px solid rgba(255,255,255,.19); }
+    .ceua-calendar-feature .ceua-deadline { margin:0; color:rgba(255,255,255,.74); font-size:.88rem; }
+    .ceua-calendar-feature .ceua-deadline strong { display:block; margin-top:4px; color:#fff; font-size:1.05rem; }
+
+    .ceua-meeting-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; }
+    .ceua-meeting-card {
+      position:relative;
+      min-height:150px;
+      padding:18px;
+      border:1px solid var(--ceua-line);
+      border-radius:16px;
+      background:#fff;
+      transition:transform .2s ease, border-color .2s ease;
+    }
+    .ceua-meeting-card:hover { transform:translateY(-3px); border-color:#aed2be; }
+    .ceua-meeting-card.is-next { border:2px solid var(--ceua-green-600); background:var(--ceua-soft-green); }
+    .ceua-meeting-card.is-past { opacity:.58; filter:saturate(.72); }
+    .ceua-meeting-card.is-past::before { content:"Realizada"; position:absolute; top:12px; right:12px; color:var(--ceua-muted); font-size:.62rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    .ceua-calendar-feature.is-empty .ceua-calendar-day { font-size:2.1rem; letter-spacing:-.04em; }
+    .ceua-noscript { padding:16px; border-radius:12px; background:var(--ceua-soft-amber); color:var(--ceua-amber-700); }
+    .ceua-meeting-card.is-next::after {
+      content:"Próxima";
+      position:absolute;
+      top:12px;
+      right:12px;
+      padding:4px 8px;
+      border-radius:999px;
+      background:var(--ceua-green-700);
+      color:#fff;
+      font-size:.65rem;
+      font-weight:900;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+    .ceua-meeting-month { margin:0; color:var(--ceua-green-700); font-size:.76rem; font-weight:900; letter-spacing:.1em; text-transform:uppercase; }
+    .ceua-meeting-date { margin:12px 0 0; color:var(--ceua-navy-950); font-size:1.85rem; font-weight:950; letter-spacing:-.045em; line-height:1; }
+    .ceua-meeting-weekday { margin:9px 0 0; color:var(--ceua-muted); font-size:.83rem; }
+
+    .ceua-table-wrap { overflow-x:auto; border:1px solid var(--ceua-line); border-radius:18px; background:#fff; box-shadow:var(--ceua-shadow-sm); }
+    .ceua-table { width:100%; min-width:760px; border-collapse:collapse; }
+    .ceua-table th {
+      padding:16px 18px;
+      border-bottom:2px solid var(--ceua-navy-800);
+      background:var(--ceua-soft-blue);
+      color:var(--ceua-navy-800);
+      font-size:.72rem;
+      letter-spacing:.1em;
+      text-align:left;
+      text-transform:uppercase;
+    }
+    .ceua-table td { padding:18px; border-bottom:1px solid var(--ceua-line); vertical-align:top; }
+    .ceua-table tbody tr:last-child td { border-bottom:0; }
+    .ceua-table tbody tr:hover { background:#f8fbfc; }
+    .ceua-seat {
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      margin-bottom:7px;
+      color:var(--ceua-navy-800);
+      font-size:.76rem;
+      font-weight:900;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+    .ceua-member-primary { font-weight:850; }
+    .ceua-member-secondary { display:block; margin-top:4px; color:var(--ceua-muted); }
+
+    .ceua-coordination {
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-top:18px;
+      padding:20px;
+      border-radius:17px;
+      background:var(--ceua-navy-950);
+      color:#fff;
+    }
+    .ceua-coordination-icon {
+      display:grid;
+      place-items:center;
+      flex:0 0 46px;
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      background:rgba(142,224,200,.16);
+      color:#8ee0c8;
+    }
+    .ceua-coordination p { margin:0; color:rgba(255,255,255,.7); font-size:.77rem; text-transform:uppercase; letter-spacing:.08em; font-weight:850; }
+    .ceua-coordination strong { display:block; margin-top:3px; font-size:1rem; }
+    .ceua-coordination a { display:block; margin-top:2px; color:#8ee0c8; font-size:.88rem; font-weight:750; overflow-wrap:anywhere; }
+
+    .ceua-doc-toolbar {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:18px;
+      padding:12px 14px;
+      border:1px solid var(--ceua-line);
+      border-radius:14px;
+      background:#fff;
+      box-shadow:0 7px 20px rgba(7,31,51,.06);
+    }
+    .ceua-doc-toolbar svg { flex:0 0 20px; color:#71818e; }
+    .ceua-doc-search {
+      width:100%;
+      border:0 !important;
+      outline:0 !important;
+      padding:4px !important;
+      background:transparent !important;
+      color:var(--ceua-ink) !important;
+      font:inherit !important;
+      box-shadow:none !important;
+    }
+    .ceua-doc-search::placeholder { color:#93a0aa; }
+
+    .ceua-doc-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; }
+    .ceua-doc-group { padding:20px; box-shadow:none; }
+    .ceua-doc-group-head { display:flex; align-items:center; gap:11px; margin-bottom:13px; }
+    .ceua-doc-group-icon {
+      display:grid;
+      place-items:center;
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      background:var(--ceua-soft-blue);
+      color:var(--ceua-navy-700);
+    }
+    .ceua-doc-group:nth-child(2) .ceua-doc-group-icon { background:var(--ceua-soft-green); color:var(--ceua-green-700); }
+    .ceua-doc-group:nth-child(3) .ceua-doc-group-icon { background:#f1effb; color:#6047a8; }
+    .ceua-doc-group h3 { margin:0; color:var(--ceua-navy-950); font-size:1.05rem; }
+    .ceua-doc-list { margin:0; padding:0; list-style:none; }
+    .ceua-doc-item { border-top:1px solid var(--ceua-line); }
+    .ceua-doc-item:first-child { border-top:0; }
+    .ceua-doc-item a {
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding:12px 2px;
+      color:#314759;
+      text-decoration:none !important;
+      font-size:.87rem;
+      font-weight:700;
+      line-height:1.45;
+    }
+    .ceua-doc-item a::after { content:"↗"; margin-left:auto; color:#98a6b0; }
+    .ceua-doc-item a:hover { color:var(--ceua-navy-700); }
+    .ceua-doc-item.is-hidden { display:none; }
+    .ceua-doc-empty { display:none; margin:18px 0 0; padding:16px; border-radius:12px; background:var(--ceua-soft-amber); color:#704209; text-align:center; }
+
+    .ceua-footer {
+      position:relative;
+      overflow:hidden;
+      padding:34px;
+      border-radius:var(--ceua-radius-xl);
+      background:linear-gradient(140deg, var(--ceua-navy-950), #0b3b5b);
+      color:#fff;
+      box-shadow:var(--ceua-shadow);
+    }
+    .ceua-footer::after {
+      content:"CEUA";
+      position:absolute;
+      right:-16px;
+      bottom:-46px;
+      color:rgba(255,255,255,.045);
+      font-size:9rem;
+      font-weight:950;
+      letter-spacing:-.08em;
+      pointer-events:none;
+    }
+    .ceua-footer-grid { position:relative; z-index:1; display:grid; grid-template-columns:1.4fr .7fr; gap:24px; align-items:end; }
+    .ceua-footer h2 { margin:0; color:#fff; font-size:clamp(1.5rem, 4vw, 2.4rem); line-height:1.12; letter-spacing:-.035em; }
+    .ceua-footer p { max-width:680px; margin:11px 0 0; color:rgba(255,255,255,.69); }
+    .ceua-footer-actions { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:10px; }
+    .ceua-footer-note { position:relative; z-index:1; margin:25px 0 0; padding-top:18px; border-top:1px solid rgba(255,255,255,.13); color:rgba(255,255,255,.55); font-size:.75rem; }
+
+    .ceua-backtop {
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:80;
+      display:grid;
+      place-items:center;
+      width:46px;
+      height:46px;
+      border:0;
+      border-radius:14px;
+      background:var(--ceua-navy-900);
+      color:#fff;
+      box-shadow:0 12px 26px rgba(7,31,51,.24);
+      cursor:pointer;
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(8px);
+      transition:.2s ease;
+    }
+    .ceua-backtop.is-visible { opacity:1; visibility:visible; transform:translateY(0); }
+
+    @media (max-width:980px) {
+      .ceua-hero-grid { grid-template-columns:1fr; }
+      .ceua-hero-panel { max-width:520px; }
+      .ceua-priority { grid-template-columns:repeat(2, 1fr); margin-left:22px; margin-right:22px; }
+      .ceua-intro-grid { grid-template-columns:1fr; }
+      .ceua-timeline { grid-template-columns:1fr 1fr; }
+      .ceua-timeline::before { display:none; }
+      .ceua-calendar-layout { grid-template-columns:1fr; }
+      .ceua-calendar-feature { display:grid; grid-template-columns:1fr 1fr; column-gap:24px; align-items:end; }
+      .ceua-calendar-feature hr { grid-column:1 / -1; width:100%; }
+      .ceua-calendar-feature .ceua-deadline { grid-column:1 / -1; }
+      .ceua-doc-grid { grid-template-columns:1fr 1fr; }
+      .ceua-footer-grid { grid-template-columns:1fr; }
+      .ceua-footer-actions { justify-content:flex-start; }
+    }
+
+    @media (max-width:700px) {
+      .ceua-page { width:min(100% - 18px, 1180px); margin-top:9px; }
+      .ceua-hero { min-height:auto; padding:25px 21px 50px; border-radius:22px; }
+      .ceua-brandline { align-items:flex-start; }
+      .ceua-logo-wrap { flex-basis:64px; width:64px; height:64px; border-radius:18px; }
+      .ceua-logo-wrap img { width:52px; height:52px; }
+      .ceua-hero h1 { font-size:clamp(2.35rem, 14vw, 4rem); }
+      .ceua-actions { flex-direction:column; }
+      .ceua-actions .ceua-btn { width:100%; }
+      .ceua-priority { grid-template-columns:1fr; margin:-27px 12px 0; }
+      .ceua-priority-card { min-height:118px; }
+      .ceua-sticky-nav { justify-content:flex-start; margin-top:22px; }
+      .ceua-main { margin-top:43px; }
+      .ceua-section { margin-bottom:54px; }
+      .ceua-section-head { grid-template-columns:1fr; gap:12px; }
+      .ceua-section-number { width:45px; height:45px; border-radius:14px; }
+      .ceua-stat-row { grid-template-columns:1fr; }
+      .ceua-accordion-body { padding-left:20px; }
+      .ceua-timeline { grid-template-columns:1fr; }
+      .ceua-alert-grid { grid-template-columns:1fr; }
+      .ceua-alert-wide { grid-column:auto; }
+      .ceua-calendar-feature { display:block; }
+      .ceua-calendar-feature hr { width:auto; }
+      .ceua-meeting-grid { grid-template-columns:1fr 1fr; }
+      .ceua-doc-grid { grid-template-columns:1fr; }
+      .ceua-footer { padding:25px 21px; border-radius:22px; }
+      .ceua-footer-actions { flex-direction:column; }
+      .ceua-footer-actions .ceua-btn { width:100%; }
+      .ceua-coordination { align-items:flex-start; }
+    }
+
+    @media (max-width:430px) {
+      .ceua-countdown { grid-template-columns:1fr; }
+      .ceua-meeting-grid { grid-template-columns:1fr; }
+      .ceua-warning { grid-template-columns:1fr; }
+      .ceua-alert { padding:66px 18px 20px; }
+      .ceua-alert::before { left:18px; top:16px; }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .ceua-page { scroll-behavior:auto; }
+      .ceua-page *, .ceua-page *::before, .ceua-page *::after { animation:none !important; transition:none !important; }
+    }
+
+    @media print {
+      .ceua-sticky-nav, .ceua-backtop, .ceua-doc-toolbar { display:none !important; }
+      .ceua-page { width:100%; margin:0; }
+      .ceua-hero, .ceua-footer { box-shadow:none; }
+      .ceua-accordion:not([open]) > *:not(summary) { display:block; }
+      .ceua-section { break-inside:avoid; }
+    }
+  </style>
+
+<div class="ceua-page" id="ceua-topo">
+<a class="ceua-skip" href="#ceua-conteudo">Pular para o conteúdo</a>
+<header aria-labelledby="ceua-title" class="ceua-hero">
+<div class="ceua-hero-grid">
+<div>
+<div class="ceua-brandline">
+<div class="ceua-logo-wrap">
+<span aria-hidden="true" class="ceua-logo-fallback">CEUA</span>
+<img alt="Símbolo da CEUA UFPR Palotina" height="64" onerror="this.style.display='none'" src="https://palotina.ufpr.br/wp-content/uploads/2016/06/Slide1-150x150.jpg" width="64"/>
+</div>
+<div>
+<p class="ceua-kicker">Comissão de Ética no Uso de Animais</p>
+<p class="ceua-institution">Universidade Federal do Paraná · Setor Palotina</p>
+</div>
+</div>
+<h1 id="ceua-title">Ética, cuidado e <span>responsabilidade científica.</span></h1>
+<p class="ceua-hero-lead">Orientações, formulários, tramitação, cadastro de instalações e documentos oficiais da CEUA/Palotina em um único lugar.</p>
+</div>
+<a aria-label="Ir para o calendário de reuniões" class="ceua-hero-panel" href="#calendario">
+<p class="ceua-hero-panel-label"><span aria-hidden="true" class="ceua-pulse"></span> Próxima reunião ordinária</p>
+<p class="ceua-next-date" id="ceua-next-date">Carregando…</p>
+<p class="ceua-next-meta" id="ceua-next-meta">Calendário de reuniões</p>
+<div class="ceua-countdown">
+<div><strong id="ceua-days-left">—</strong><span>dias restantes</span></div>
+<div><strong id="ceua-required-days">15</strong><span>dias de antecedência</span></div>
+</div>
+<span class="ceua-hero-panel-link">Ver calendário <span aria-hidden="true">↓</span></span>
+</a>
+</div>
+</header>
+<nav aria-label="Acessos prioritários" class="ceua-priority">
+<a class="ceua-priority-card" href="#solicitacoes">
+<div class="ceua-priority-top">
+<span aria-hidden="true" class="ceua-priority-icon">✎</span>
+<span aria-hidden="true" class="ceua-priority-arrow">↓</span>
+</div>
+<div><strong>Solicitações à CEUA</strong><small>Envio, documentos e tramitação</small></div>
+</a>
+<a class="ceua-priority-card" href="#ciuca">
+<div class="ceua-priority-top">
+<span aria-hidden="true" class="ceua-priority-icon">⌂</span>
+<span aria-hidden="true" class="ceua-priority-arrow">↓</span>
+</div>
+<div><strong>Cadastro de instalações</strong><small>Credenciamento e licenciamento no CIUCA</small></div>
+</a>
+<a class="ceua-priority-card" href="#calendario">
+<div class="ceua-priority-top">
+<span aria-hidden="true" class="ceua-priority-icon">▦</span>
+<span aria-hidden="true" class="ceua-priority-arrow">↓</span>
+</div>
+<div><strong>Calendário de reuniões</strong><small>Datas e prazo recomendado de envio</small></div>
+</a>
+<a class="ceua-priority-card" href="#documentos">
+<div class="ceua-priority-top">
+<span aria-hidden="true" class="ceua-priority-icon">≡</span>
+<span aria-hidden="true" class="ceua-priority-arrow">↓</span>
+</div>
+<div><strong>Links e arquivos úteis</strong><small>Normativas, modelos e cursos</small></div>
+</a>
+</nav>
+<nav aria-label="Navegação pela página" class="ceua-sticky-nav">
+<a href="#solicitacoes">Solicitações</a>
+<a href="#ciuca">CIUCA</a>
+<a href="#alertas">Alertas</a>
+<a href="#calendario">Calendário</a>
+<a href="#composicao">Composição</a>
+<a href="#documentos">Documentos</a>
+</nav>
+<main class="ceua-main" id="ceua-conteudo">
+<section class="ceua-section" data-tone="blue" id="solicitacoes">
+<div class="ceua-section-head">
+<div class="ceua-section-number">01</div>
+<div>
+<p class="ceua-section-kicker">Submissão de projetos</p>
+<h2>Como enviar uma solicitação à CEUA/Palotina</h2>
+<p class="ceua-section-subtitle">Projetos de ensino, pesquisa, extensão ou treinamento com animais vertebrados precisam de aprovação prévia — independentemente do tipo ou porte do animal.</p>
+</div>
+</div>
+<div class="ceua-intro-grid">
+<div class="ceua-feature-card">
+<p>Todo projeto realizado no Setor Palotina que envolva animais vertebrados deve ser <strong>previamente analisado e aprovado pela CEUA/Palotina</strong> antes do início das atividades.</p>
+<div aria-label="Informações resumidas da tramitação" class="ceua-stat-row">
+<div class="ceua-stat"><strong>Digital</strong><span>envio exclusivamente em PDF</span></div>
+<div class="ceua-stat"><strong>15 dias</strong><span>prazo mínimo antes da reunião</span></div>
+<div class="ceua-stat"><strong>Mensal</strong><span>homologação em reunião ordinária</span></div>
+</div>
+<div class="ceua-accordion-stack">
+<details class="ceua-accordion" open="">
+<summary><span class="ceua-step-badge">1</span> Quem pode enviar</summary>
+<div class="ceua-accordion-body">
+<p>O envio deve ser feito por <strong>docente lotado no Setor Palotina da UFPR</strong>.</p>
+</div>
+</details>
+<details class="ceua-accordion">
+<summary><span class="ceua-step-badge">2</span> Como enviar</summary>
+<div class="ceua-accordion-body">
+<p>As solicitações são feitas <strong>exclusivamente em formato digital</strong>, pelo formulário oficial, e encaminhadas ao e-mail da CEUA/Palotina com os documentos exigidos.</p>
+<p><strong>E-mail:</strong> <a href="mailto:ceua.palotina@gmail.com">ceua.palotina@gmail.com</a></p>
+</div>
+</details>
+<details class="ceua-accordion">
+<summary><span class="ceua-step-badge">3</span> Documentos conforme a atividade</summary>
+<div class="ceua-accordion-body">
+<p>Os documentos devem ser anexados em PDF:</p>
+<ul class="ceua-list">
+<li><strong>Pesquisa ou extensão:</strong> cópia do projeto.</li>
+<li><strong>Aula prática:</strong> cópia da Ficha 2.</li>
+<li><strong>Treinamento:</strong> plano de trabalho com título, objetivos, justificativa, metodologia detalhada com referências, público-alvo e assinatura do responsável.</li>
+</ul>
+</div>
+</details>
+<details class="ceua-accordion">
+<summary><span class="ceua-step-badge">4</span> Documentos complementares</summary>
+<div class="ceua-accordion-body">
+<p>Anexe quando aplicável:</p>
+<ul class="ceua-list">
+<li><strong>Comprovação de formação e experiência</strong> do responsável e da equipe técnica, como currículo Lattes e certificados.</li>
+<li><strong>Termo de Consentimento Livre e Esclarecido (TCLE)</strong>, quando houver animais com proprietário ou responsável.</li>
+<li><strong>Autorização do IBAMA/SISBIO (ICMBio)</strong>, quando envolver fauna silvestre.</li>
+<li><strong>Autorização ou parecer da CIBio</strong>, quando envolver organismos geneticamente modificados ou seus derivados.</li>
+</ul>
+</div>
+</details>
+<details class="ceua-accordion">
+<summary><span class="ceua-step-badge">5</span> Prazos</summary>
+<div class="ceua-accordion-body">
+<p>O envio ocorre em <strong>fluxo contínuo</strong> durante o período letivo. Para entrar na reunião do mês, a solicitação deve ser protocolada com <strong>no mínimo 15 dias de antecedência</strong>.</p>
+</div>
+</details>
+<details class="ceua-accordion">
+<summary><span class="ceua-step-badge">6</span> Como tramita</summary>
+<div class="ceua-accordion-body">
+<p>A Coordenação encaminha a solicitação a um <strong>parecerista</strong>, que emite parecer em até <strong>15 dias</strong>. Os formulários aprovados são homologados na reunião mensal; o proponente é informado e o <strong>Certificado de Aprovação</strong> é emitido e retirado na Secretaria mediante assinatura do autor responsável.</p>
+</div>
+</details>
+</div>
+</div>
+<aside class="ceua-callout">
+<p class="ceua-callout-label">Comece por aqui</p>
+<h3>Preencha o formulário oficial</h3>
+<p>Use a versão online, confira todos os campos, gere o PDF e envie pelo e-mail institucional do docente responsável.</p>
+<a class="ceua-btn ceua-btn-primary" href="https://marcoantoniobarreiros.github.io/CEUA_form/solicitacao-ceua-appscript.html" rel="noopener" target="_blank">Acessar formulário <span aria-hidden="true">↗</span></a>
+<p class="ceua-contact-line">Envio: <a href="mailto:ceua.palotina@gmail.com">ceua.palotina@gmail.com</a></p>
+</aside>
+</div>
+<div class="ceua-warning">
+<div aria-hidden="true" class="ceua-warning-icon">!</div>
+<div>
+<h3>Antes de enviar, confirme estes quatro pontos</h3>
+<ul>
+<li>A atividade ocorrerá em instalação cadastrada e licenciada junto ao CIUCA.</li>
+<li>Todos os campos estão preenchidos; quando necessário, use “não se aplica” ou “não haverá”.</li>
+<li>O termo de responsabilidade contém a assinatura do docente responsável.</li>
+<li>O relatório final será entregue ao término do período ou quando solicitado.</li>
+</ul>
+</div>
+</div>
+<p class="ceua-source">Base: Regimento Interno da CEUA/Palotina (Cap. VI; Art. 6, I e X) e normas aplicáveis do CONCEA.</p>
+</section>
+<section class="ceua-section" data-tone="green" id="ciuca">
+<div class="ceua-section-head">
+<div class="ceua-section-number">02</div>
+<div>
+<p class="ceua-section-kicker">Credenciamento e licenciamento</p>
+<h2>Cadastro de instalação animal no CIUCA</h2>
+<p class="ceua-section-subtitle">Toda estrutura onde animais vertebrados são produzidos, mantidos ou utilizados em ensino, pesquisa ou extensão deve estar vinculada a uma CEUA e possuir cadastro ativo.</p>
+</div>
+</div>
+<div class="ceua-intro-grid">
+<div class="ceua-feature-card">
+<p>Toda estrutura física onde animais vertebrados são <strong>produzidos, mantidos ou utilizados</strong> é considerada uma instalação de uso de animais. Ela deve ser <strong>cadastrada, credenciada e licenciada no CIUCA</strong>. Nenhuma instalação pode iniciar ou manter atividades sem cadastro ativo.</p>
+<ul class="ceua-list">
+<li><strong>O processo é iniciado pelo(a) coordenador(a) da instalação.</strong></li>
+<li>A instalação deve ter um(a) <strong>Responsável Técnico(a), médico(a)-veterinário(a)</strong>.</li>
+<li>Após o credenciamento, o(a) coordenador(a) preenche os dados no CIUCA e solicita o licenciamento.</li>
+</ul>
+</div>
+<aside class="ceua-callout ceua-callout-green">
+<p class="ceua-callout-label">Formulários oficiais</p>
+<h3>Selecione o grupo animal da instalação</h3>
+<p>Acesse as planilhas de critérios de licenciamento e gere o PDF assinado pelo coordenador e pelo RT.</p>
+<a class="ceua-btn ceua-btn-primary" href="https://marcoantoniobarreiros.github.io/CEUA_form/ciuca/" rel="noopener" target="_blank">Abrir formulários <span aria-hidden="true">↗</span></a>
+</aside>
+</div>
+<div aria-label="Etapas do cadastro da instalação no CIUCA" class="ceua-timeline">
+<article class="ceua-timeline-step">
+<div class="ceua-timeline-dot">01</div>
+<h3>Abertura no SEI</h3>
+<p>O coordenador instaura o processo e encaminha a documentação à CEUA.</p>
+</article>
+<article class="ceua-timeline-step">
+<div class="ceua-timeline-dot">02</div>
+<h3>Análise da CEUA</h3>
+<p>A CEUA inclui o parecer e encaminha o processo à Unibio/PRPI.</p>
+</article>
+<article class="ceua-timeline-step">
+<div class="ceua-timeline-dot">03</div>
+<h3>Credenciamento</h3>
+<p>O representante legal credencia a instalação no CIUCA.</p>
+</article>
+<article class="ceua-timeline-step">
+<div class="ceua-timeline-dot">04</div>
+<h3>Dados na plataforma</h3>
+<p>O coordenador completa as informações e solicita o licenciamento.</p>
+</article>
+<article class="ceua-timeline-step">
+<div class="ceua-timeline-dot">05</div>
+<h3>Assinaturas</h3>
+<p>RT, CEUA, Unibio e Pró-Reitoria concluem o fluxo no CIUCA.</p>
+</article>
+</div>
+<div class="ceua-accordion-stack">
+<details class="ceua-accordion" open="">
+<summary><span class="ceua-step-badge">1</span> Abertura do processo no SEI</summary>
+<div class="ceua-accordion-body">
+<p>O(a) coordenador(a) deve instaurar processo SEI do tipo <strong>“Administração Geral: Informações e Documentos”</strong> e encaminhá-lo à CEUA com:</p>
+<ul class="ceua-list">
+<li><strong>Ofício</strong> solicitando a validação do funcionamento da instalação, como primeiro despacho do processo.</li>
+<li><strong>Formulário de cadastro do grupo animal</strong>, preenchido, gerado em PDF e assinado pelo(a) coordenador(a) e pelo(a) RT.</li>
+<li><strong>Dados para cadastro:</strong> CPF, nome completo, e-mail institucional, CEUA de vinculação e nome da instalação.</li>
+</ul>
+</div>
+</details>
+<details class="ceua-accordion">
+<summary><span class="ceua-step-badge">2</span> Análise e encaminhamento pela CEUA</summary>
+<div class="ceua-accordion-body">
+<p>A CEUA inclui no processo seu <strong>parecer endereçado ao(à) Pró-reitor(a)</strong>, atestando a adequação e a relevância da instalação, solicita o credenciamento e encaminha o processo à <strong>Unibio/PRPI</strong>.</p>
+</div>
+</details>
+<details class="ceua-accordion">
+<summary><span class="ceua-step-badge">3</span> Credenciamento no CIUCA</summary>
+<div class="ceua-accordion-body">
+<p>O(a) representante legal realiza o <strong>credenciamento da instalação</strong> no CIUCA, e a Unibio atesta o credenciamento nos autos.</p>
+</div>
+</details>
+<details class="ceua-accordion">
+<summary><span class="ceua-step-badge">4</span> Preenchimento pelo(a) coordenador(a)</summary>
+<div class="ceua-accordion-body">
+<p>Após o credenciamento, o(a) coordenador(a), <strong>com anuência do(a) RT</strong>, completa as informações diretamente no CIUCA e solicita o licenciamento em seu perfil.</p>
+</div>
+</details>
+<details class="ceua-accordion">
+<summary><span class="ceua-step-badge">5</span> Assinaturas do licenciamento</summary>
+<div class="ceua-accordion-body">
+<p>O licenciamento é assinado no próprio CIUCA na seguinte sequência:</p>
+<div aria-label="Sequência de assinaturas" class="ceua-sequence">
+<span>Responsável Técnico</span><b aria-hidden="true">→</b><span>Coordenação da CEUA</span><b aria-hidden="true">→</b><span>Unibio</span><b aria-hidden="true">→</b><span>Pró-reitor(a)</span>
+</div>
+<p>Concluídas as assinaturas e a validação da Unibio, o processo é encerrado.</p>
+</div>
+</details>
+</div>
+<div class="ceua-warning">
+<div aria-hidden="true" class="ceua-warning-icon">!</div>
+<div>
+<h3>Obrigação permanente</h3>
+<ul>
+<li>As informações da instalação devem ser <strong>atualizadas anualmente</strong> no CIUCA, até o mês anterior à entrega do relatório anual da CEUA.</li>
+<li>Nenhuma atividade com animais vertebrados pode ocorrer em instalação sem cadastro ativo e licenciamento no CIUCA.</li>
+</ul>
+</div>
+</div>
+<p class="ceua-source">Base: Instrução Normativa nº 03/2026-PRPI/UFPR, Art. 7º; formulários por grupo animal conforme RN CONCEA + Guia.</p>
+</section>
+<section class="ceua-section" data-tone="amber" id="alertas">
+<div class="ceua-section-head">
+<div class="ceua-section-number">03</div>
+<div>
+<p class="ceua-section-kicker">Evite devoluções</p>
+<h2>Alertas importantes antes da submissão</h2>
+<p class="ceua-section-subtitle">Os pontos abaixo concentram os erros que mais impedem ou atrasam a tramitação dos formulários.</p>
+</div>
+</div>
+<div class="ceua-alert-grid">
+<article class="ceua-alert ceua-alert-wide" data-number="01">
+<h3>Responsabilidade docente e envio em PDF</h3>
+<p>Todo formulário deve ser de responsabilidade de servidor docente vinculado ao Setor Palotina. Conforme acordo com a UNIBIO, a CEUA/Palotina tramita solicitações do Campus Jandaia do Sul e do Setor Litoral até que possuam CEUA própria. A assinatura digital deve constar no termo de responsabilidade, e o envio deve partir do e-mail do docente responsável, <strong>sempre em PDF</strong>. Docentes de outros setores da UFPR sem CEUA poderão consultar previamente a Coordenação da CEUA/Palotina.</p>
+</article>
+<article class="ceua-alert" data-number="02">
+<h3>Campos em branco não serão interpretados</h3>
+<p><strong>Não serão aprovados formulários com campos não preenchidos.</strong> Quando a situação não se aplicar, escreva “não se aplica”, “não haverá” ou esclareça a condição. As informações devem corresponder ao projeto.</p>
+</article>
+<article class="ceua-alert" data-number="03">
+<h3>Equipe capacitada</h3>
+<p>A equipe poderá auxiliar no preenchimento, pois deverá estar plenamente capacitada para executar os procedimentos propostos.</p>
+</article>
+<article class="ceua-alert" data-number="04">
+<h3>Item 9.5 — Grau de invasividade</h3>
+<p>O item 9.5 refere-se ao <strong>grau de invasividade — GI1, GI2, GI3 ou GI4</strong>. Informe o GI e descreva, no quadro logo abaixo, os dados necessários sobre materiais biológicos.</p>
+</article>
+<article class="ceua-alert" data-number="05">
+<h3>Item 14 — Termo de responsabilidade</h3>
+<p>Assine o formulário ou insira a assinatura digital <strong>antes de convertê-lo em PDF</strong>.</p>
+</article>
+</div>
+</section>
+<section class="ceua-section" data-tone="green" id="calendario">
+<div class="ceua-section-head">
+<div class="ceua-section-number">04</div>
+<div>
+<p class="ceua-section-kicker">Reuniões ordinárias</p>
+<h2 id="ceua-calendar-title">Calendário da CEUA</h2>
+<p class="ceua-section-subtitle">Para inclusão na pauta do mês, protocole a solicitação com pelo menos 15 dias de antecedência.</p>
+</div>
+</div>
+<div class="ceua-calendar-layout">
+<aside aria-live="polite" class="ceua-calendar-feature">
+<div>
+<p class="ceua-calendar-label">Próxima reunião</p>
+<p class="ceua-calendar-day" id="ceua-feature-day">—</p>
+<p class="ceua-calendar-month" id="ceua-feature-month">Calendário</p>
+<p class="ceua-calendar-weekday" id="ceua-feature-weekday">Carregando datas…</p>
+</div>
+<hr/>
+<p class="ceua-deadline">Data-limite indicada para protocolo<strong id="ceua-deadline-date">—</strong></p>
+</aside>
+<div aria-label="Datas das reuniões ordinárias" class="ceua-meeting-grid" id="ceua-meeting-grid"></div>
+<noscript><p class="ceua-noscript">Ative o JavaScript para visualizar o calendário dinâmico.</p></noscript>
+</div>
+</section>
+<section class="ceua-section" data-tone="blue" id="composicao">
+<div class="ceua-section-head">
+<div class="ceua-section-number">05</div>
+<div>
+<p class="ceua-section-kicker">Portaria nº 1691/2026-PL</p>
+<h2>Composição da CEUA/Palotina</h2>
+<p class="ceua-section-subtitle">Mandato e composição conforme portaria de 13 de fevereiro de 2026.</p>
+</div>
+</div>
+<div aria-label="Tabela de composição da CEUA" class="ceua-table-wrap" role="region" tabindex="0">
+<table class="ceua-table">
+<thead>
+<tr><th>Assento e indicação</th><th>Membros — titular e suplente</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="ceua-seat">Assento 1</span><br/>Docente do quadro efetivo do Setor Palotina com formação em <strong>Zootecnia</strong></td>
+<td><span class="ceua-member-primary">Titular — Profa. Angela Rocio Poveda Parra</span><span class="ceua-member-secondary">Suplente — Profa. Lilian Dena dos Santos</span></td>
+</tr>
+<tr>
+<td><span class="ceua-seat">Assento 2</span><br/>Docente do quadro efetivo do Setor Palotina com formação em <strong>Ciências Biológicas</strong></td>
+<td><span class="ceua-member-primary">Titular — Prof. Alexandre Leandro Pereira</span><span class="ceua-member-secondary">Suplente — Profa. Lucíola Thais Baldan</span></td>
+</tr>
+<tr>
+<td><span class="ceua-seat">Assento 3</span><br/>Departamento de Ciências Veterinárias</td>
+<td><span class="ceua-member-primary">Titular — Profa. Geane Maciel Pagliosa</span><span class="ceua-member-secondary">Suplente — Profa. Maristela de Cássia Seudo Lopes</span></td>
+</tr>
+<tr>
+<td><span class="ceua-seat">Assento 4</span><br/>Departamento de Ciências Veterinárias</td>
+<td><span class="ceua-member-primary">Titular — Prof. Olicies da Cunha</span><span class="ceua-member-secondary">Suplente — Profa. Manoela Marchezan Piva</span></td>
+</tr>
+<tr>
+<td><span class="ceua-seat">Assento 4</span><br/>Departamento de Ciências Veterinárias</td>
+<td><span class="ceua-member-primary">Titular — Profa. Edna Tereza de Lima</span><span class="ceua-member-secondary">Suplente — Profa. Janislene Mach Trentin</span></td>
+</tr>
+<tr>
+<td><span class="ceua-seat">Assento 5</span><br/>Departamento de Biociências</td>
+<td><span class="ceua-member-primary">Titular — Prof. Marco Antonio Bacellar Barreiros</span><span class="ceua-member-secondary">Suplente — Prof. Milton Ronnau</span></td>
+</tr>
+<tr>
+<td><span class="ceua-seat">Assento 7</span><br/>Departamento de Biodiversidade</td>
+<td><span class="ceua-member-primary">Titular — Profa. Márcia Santos de Menezes</span><span class="ceua-member-secondary">Suplente — Prof. Edilson Caron</span></td>
+</tr>
+<tr>
+<td><span class="ceua-seat">Assento 8</span><br/>Associação protetora de animais legalmente constituída e estabelecida no país</td>
+<td><span class="ceua-member-primary">Titular — Olenia Terezinha Rinaldi</span><span class="ceua-member-secondary">Suplente — Claudineia Mara Marx Leal</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="ceua-coordination">
+<div aria-hidden="true" class="ceua-coordination-icon">✦</div>
+<div>
+<p>Coordenação da CEUA/Palotina</p>
+<strong>Prof. Marco Antonio Bacellar Barreiros</strong>
+<a href="mailto:mbarreiros@ufpr.br">mbarreiros@ufpr.br</a>
+</div>
+</div>
+</section>
+<section class="ceua-section" data-tone="purple" id="documentos">
+<div class="ceua-section-head">
+<div class="ceua-section-number">06</div>
+<div>
+<p class="ceua-section-kicker">Central de recursos</p>
+<h2>Arquivos e links úteis</h2>
+<p class="ceua-section-subtitle">Pesquise pelo nome do documento, tipo de formulário ou tema.</p>
+</div>
+</div>
+<label class="ceua-doc-toolbar" for="ceua-doc-search">
+<svg aria-hidden="true" fill="none" height="20" viewbox="0 0 24 24" width="20"><path d="m21 21-4.35-4.35m2.35-5.15A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+<input autocomplete="off" class="ceua-doc-search" id="ceua-doc-search" placeholder="Ex.: eutanásia, TCLE, regimento, CIUCA..." type="search"/>
+</label>
+<div class="ceua-doc-grid">
+<article class="ceua-doc-group">
+<div class="ceua-doc-group-head"><span aria-hidden="true" class="ceua-doc-group-icon">§</span><h3>Normativas e diretrizes</h3></div>
+<ul class="ceua-doc-list">
+<li class="ceua-doc-item"><a href="https://palotina.ufpr.br/wp-content/uploads/2024/07/Anexo_Res_Norm_37_2018_CONCEA_Pratica_Eutanasia.pdf" rel="noopener" target="_blank">Diretriz da Prática de Eutanásia do CONCEA</a></li>
+<li class="ceua-doc-item"><a href="https://palotina.ufpr.br/wp-content/uploads/2024/07/guia_concea_1ed_animais-_ensino_ou_pesquisa_2023.pdf" rel="noopener" target="_blank">Guia Brasileiro de produção, manutenção ou utilização de animais em ensino e pesquisa — CONCEA</a></li>
+<li class="ceua-doc-item"><a href="https://palotina.ufpr.br/wp-content/uploads/2016/06/Resolução-cepe8611-CEUA-1.pdf" rel="noopener" target="_blank">Cria as CEUAs na UFPR — Resolução 86/11 CEPE</a></li>
+<li class="ceua-doc-item"><a href="https://palotina.ufpr.br/wp-content/uploads/2023/02/REGIMENTO-INTERNO_CEUA.Palotina_2023__ASSINADO.pdf" rel="noopener" target="_blank">Regimento Interno da CEUA/Palotina</a></li>
+<li class="ceua-doc-item"><a href="https://palotina.ufpr.br/wp-content/uploads/2023/08/Res492021.pdf" rel="noopener" target="_blank">Resolução CONCEA/MCTI nº 49, de 7 de maio de 2021</a></li>
+<li class="ceua-doc-item"><a href="https://ufpr.br/prpi/wp-content/uploads/2026/06/IN-03-2026-PRPI.pdf" rel="noopener" target="_blank">Instrução Normativa nº 03/2026-PRPI — instalações de uso animal</a></li>
+</ul>
+</article>
+<article class="ceua-doc-group">
+<div class="ceua-doc-group-head"><span aria-hidden="true" class="ceua-doc-group-icon">□</span><h3>Formulários e modelos</h3></div>
+<ul class="ceua-doc-list">
+<li class="ceua-doc-item"><a href="#solicitacoes">Formulário Unificado de Autorização para Uso de Animais — ver orientações de envio</a></li>
+<li class="ceua-doc-item"><a href="#ciuca">Formulários para cadastramento de instalações — ver orientações do CIUCA</a></li>
+<li class="ceua-doc-item"><a href="https://palotina.ufpr.br/wp-content/uploads/2016/06/Formulário-CEUA.Palotina-Relato-de-Caso.doc">Formulário CEUA/Palotina — Relato de Caso</a></li>
+<li class="ceua-doc-item"><a href="https://palotina.ufpr.br/wp-content/uploads/2016/06/TERMO-DE-CONSENTIMENTO-LIVRE-E-ESCLARECIDO-CEUA.Palotina.doc">Termo de Consentimento Livre e Esclarecido — TCLE</a></li>
+</ul>
+</article>
+<article class="ceua-doc-group">
+<div class="ceua-doc-group-head"><span aria-hidden="true" class="ceua-doc-group-icon">▶</span><h3>Cursos e capacitação</h3></div>
+<ul class="ceua-doc-list">
+<li class="ceua-doc-item"><a href="https://campusvirtual.fiocruz.br/portal/?q=node/66494" rel="noopener" target="_blank">Iniciação em Ciência em Animais de Laboratório — FIOCRUZ</a></li>
+<li class="ceua-doc-item"><a href="https://ava.sede.embrapa.br/enrol/index.php?id=396" rel="noopener" target="_blank">Curso sobre Uso Animal — Embrapa</a></li>
+</ul>
+</article>
+</div>
+<p class="ceua-doc-empty" id="ceua-doc-empty">Nenhum documento encontrado com esse termo.</p>
+</section>
+</main>
+<footer class="ceua-footer">
+<div class="ceua-footer-grid">
+<div>
+<h2>Dúvidas antes de enviar?</h2>
+<p>Consulte as orientações acima ou entre em contato com a CEUA/Palotina antes de protocolar a solicitação.</p>
+</div>
+<div class="ceua-footer-actions">
+<a class="ceua-btn ceua-btn-primary" href="mailto:ceua.palotina@gmail.com">Falar com a CEUA</a>
+<a class="ceua-btn ceua-btn-secondary" href="#ceua-topo">Voltar ao início</a>
+</div>
+</div>
+<p class="ceua-footer-note">CEUA/UFPR — Setor Palotina · Informações institucionais para ensino, pesquisa, extensão e treinamento com animais vertebrados.</p>
+</footer>
+<button aria-label="Voltar ao início" class="ceua-backtop" id="ceua-backtop" type="button">↑</button>
+</div>
+<script>
+    (() => {
+      const initCeuaPage = page => {
+        if (!page || page.dataset.ceuaReady === '1') return;
+        page.dataset.ceuaReady = '1';
+
+      /*
+       * ================================================================
+       * CALENDÁRIO — ÚNICA ÁREA QUE PRECISA SER EDITADA A CADA SEMESTRE
+       * Altere CEUA_PRAZO_DIAS se o prazo institucional mudar.
+       * Acrescente ou remova datas no formato AAAA-MM-DD.
+       * O campo "sufixo" é opcional (ex.: "*" para uma observação).
+       * Mantenha as datas em ordem cronológica.
+       * ================================================================
+       */
+      const CEUA_PRAZO_DIAS = 15;
+
+      const CEUA_REUNIOES = [
+        { data: '2026-07-28' },
+        { data: '2026-08-26' },
+        { data: '2026-09-29' },
+        { data: '2026-10-28' },
+        { data: '2026-11-24' },
+        { data: '2026-12-16', sufixo: '*' }
+      ];
+
+      const now = new Date();
+      now.setHours(0, 0, 0, 0);
+
+      const makeLocalDate = iso => {
+        const [year, month, day] = iso.split('-').map(Number);
+        return new Date(year, month - 1, day, 12);
+      };
+
+      const formatMonth = new Intl.DateTimeFormat('pt-BR', { month:'long' });
+      const formatWeekday = new Intl.DateTimeFormat('pt-BR', { weekday:'long' });
+      const formatLong = new Intl.DateTimeFormat('pt-BR', { day:'2-digit', month:'short', year:'numeric' });
+      const formatMonthYear = new Intl.DateTimeFormat('pt-BR', { month:'long', year:'numeric' });
+      const formatDeadline = new Intl.DateTimeFormat('pt-BR', { day:'numeric', month:'long', year:'numeric' });
+
+      const meetings = CEUA_REUNIOES
+        .map(item => ({ ...item, date:makeLocalDate(item.data) }))
+        .sort((a, b) => a.date - b.date);
+
+      const meetingGrid = page.querySelector('#ceua-meeting-grid');
+      if (!meetingGrid) return;
+      meetingGrid.innerHTML = '';
+
+      meetings.forEach(item => {
+        const card = document.createElement('article');
+        card.className = 'ceua-meeting-card';
+        card.dataset.date = item.data;
+        if (item.date < now) card.classList.add('is-past');
+        card.innerHTML = `
+          <p class="ceua-meeting-month">${formatMonth.format(item.date)}</p>
+          <p class="ceua-meeting-date">${String(item.date.getDate()).padStart(2, '0')}/${String(item.date.getMonth() + 1).padStart(2, '0')}${item.sufixo || ''}</p>
+          <p class="ceua-meeting-weekday">${formatWeekday.format(item.date)}</p>`;
+        meetingGrid.appendChild(card);
+        item.card = card;
+      });
+
+      const years = [...new Set(meetings.map(item => item.date.getFullYear()))];
+      const title = page.querySelector('#ceua-calendar-title');
+      if (years.length === 1) title.textContent = `Calendário da CEUA — ${years[0]}`;
+      else if (years.length > 1) title.textContent = `Calendário da CEUA — ${years[0]}–${years[years.length - 1]}`;
+
+      const nextMeeting = meetings.find(item => item.date >= now);
+      const feature = page.querySelector('.ceua-calendar-feature');
+      page.querySelector('#ceua-required-days').textContent = String(CEUA_PRAZO_DIAS);
+
+      if (nextMeeting) {
+        nextMeeting.card.classList.add('is-next');
+        const msPerDay = 86400000;
+        const daysLeft = Math.max(0, Math.ceil((nextMeeting.date - now) / msPerDay));
+        const deadline = new Date(nextMeeting.date);
+        deadline.setDate(deadline.getDate() - CEUA_PRAZO_DIAS);
+
+        page.querySelector('#ceua-next-date').textContent = formatLong.format(nextMeeting.date).replace('.', '');
+        page.querySelector('#ceua-next-meta').textContent = `${formatWeekday.format(nextMeeting.date)} · ver calendário`;
+        page.querySelector('#ceua-days-left').textContent = String(daysLeft);
+        page.querySelector('#ceua-feature-day').textContent = String(nextMeeting.date.getDate()).padStart(2, '0');
+        page.querySelector('#ceua-feature-month').textContent = formatMonthYear.format(nextMeeting.date);
+        page.querySelector('#ceua-feature-weekday').textContent = formatWeekday.format(nextMeeting.date);
+        page.querySelector('#ceua-deadline-date').textContent = formatDeadline.format(deadline);
+      } else {
+        feature.classList.add('is-empty');
+        page.querySelector('#ceua-next-date').textContent = 'Calendário a atualizar';
+        page.querySelector('#ceua-next-meta').textContent = 'As datas futuras ainda não foram publicadas';
+        page.querySelector('#ceua-days-left').textContent = '—';
+        page.querySelector('#ceua-feature-day').textContent = 'Sem nova data';
+        page.querySelector('#ceua-feature-month').textContent = 'Próximo período';
+        page.querySelector('#ceua-feature-weekday').textContent = 'Aguardando definição do calendário';
+        page.querySelector('#ceua-deadline-date').textContent = 'Aguardando nova reunião';
+      }
+
+      const search = page.querySelector('#ceua-doc-search');
+      const docItems = [...page.querySelectorAll('.ceua-doc-item')];
+      const empty = page.querySelector('#ceua-doc-empty');
+      const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+
+      search?.addEventListener('input', event => {
+        const term = normalize(event.target.value);
+        let visible = 0;
+        docItems.forEach(item => {
+          const matches = !term || normalize(item.textContent).includes(term);
+          item.classList.toggle('is-hidden', !matches);
+          if (matches) visible += 1;
+        });
+        empty.style.display = visible ? 'none' : 'block';
+      });
+
+      const sectionLinks = [...page.querySelectorAll('.ceua-sticky-nav a')];
+      const sections = sectionLinks
+        .map(link => page.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+          const visibleEntries = entries.filter(entry => entry.isIntersecting);
+          if (!visibleEntries.length) return;
+          const current = visibleEntries.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0].target;
+          sectionLinks.forEach(link => link.classList.toggle('is-active', link.getAttribute('href') === `#${current.id}`));
+        }, { rootMargin:'-18% 0px -65% 0px', threshold:[0, .15, .35] });
+        sections.forEach(section => observer.observe(section));
+      }
+
+      const backTop = page.querySelector('#ceua-backtop');
+      if (backTop) {
+        const toggleBackTop = () => backTop.classList.toggle('is-visible', window.scrollY > 700);
+        window.addEventListener('scroll', toggleBackTop, { passive:true });
+        toggleBackTop();
+        backTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+      }
+    };
+
+      const bootCeuaPages = () => document.querySelectorAll('.ceua-page').forEach(initCeuaPage);
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootCeuaPages, { once:true });
+      else bootCeuaPages();
+      window.addEventListener('load', bootCeuaPages, { once:true });
+      if (window.elementorFrontend?.hooks) {
+        window.elementorFrontend.hooks.addAction('frontend/element_ready/html.default', bootCeuaPages);
+      }
+    })();
+  </script>
+
+</body>
+</html>
