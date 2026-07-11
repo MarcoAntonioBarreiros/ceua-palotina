@@ -41,6 +41,7 @@
       --ceua-radius-sm:10px;
     }
 
+    html { scroll-behavior:smooth; }
     .ceua-page { scroll-behavior:smooth; }
 
     .ceua-page,
@@ -874,7 +875,7 @@
     }
 
     @media (prefers-reduced-motion:reduce) {
-      .ceua-page { scroll-behavior:auto; }
+      html, .ceua-page { scroll-behavior:auto; }
       .ceua-page *, .ceua-page *::before, .ceua-page *::after { animation:none !important; transition:none !important; }
     }
 
@@ -1326,31 +1327,25 @@
 </footer>
 <button aria-label="Voltar ao início" class="ceua-backtop" id="ceua-backtop" type="button">↑</button>
 </div>
+<script src="dados-ceua.js"></script>
 <script>
     (() => {
       const initCeuaPage = page => {
         if (!page || page.dataset.ceuaReady === '1') return;
         page.dataset.ceuaReady = '1';
 
-      /*
-       * ================================================================
-       * CALENDÁRIO — ÚNICA ÁREA QUE PRECISA SER EDITADA A CADA SEMESTRE
-       * Altere CEUA_PRAZO_DIAS se o prazo institucional mudar.
-       * Acrescente ou remova datas no formato AAAA-MM-DD.
-       * O campo "sufixo" é opcional (ex.: "*" para uma observação).
-       * Mantenha as datas em ordem cronológica.
-       * ================================================================
-       */
-      const CEUA_PRAZO_DIAS = 15;
-
-      const CEUA_REUNIOES = [
-        { data: '2026-07-28' },
-        { data: '2026-08-26' },
-        { data: '2026-09-29' },
-        { data: '2026-10-28' },
-        { data: '2026-11-24' },
-        { data: '2026-12-16', sufixo: '*' }
-      ];
+      const dados = window.CEUA_DADOS || {};
+      const CEUA_PRAZO_DIAS = Number(dados.prazoDias || 15);
+      const CEUA_REUNIOES = Array.isArray(dados.reunioes) && dados.reunioes.length
+        ? dados.reunioes
+        : [
+          { data: '2026-07-28' },
+          { data: '2026-08-26' },
+          { data: '2026-09-29' },
+          { data: '2026-10-28' },
+          { data: '2026-11-24' },
+          { data: '2026-12-16', sufixo: '*' }
+        ];
 
       const now = new Date();
       now.setHours(0, 0, 0, 0);
@@ -1365,6 +1360,95 @@
       const formatLong = new Intl.DateTimeFormat('pt-BR', { day:'2-digit', month:'short', year:'numeric' });
       const formatMonthYear = new Intl.DateTimeFormat('pt-BR', { month:'long', year:'numeric' });
       const formatDeadline = new Intl.DateTimeFormat('pt-BR', { day:'numeric', month:'long', year:'numeric' });
+
+      const makeElement = (tag, className, text) => {
+        const element = document.createElement(tag);
+        if (className) element.className = className;
+        if (text !== undefined) element.textContent = text;
+        return element;
+      };
+
+      const configureLink = (link, href) => {
+        link.href = href || '#';
+        if (href && !href.startsWith('#') && !href.startsWith('mailto:')) {
+          link.target = '_blank';
+          link.rel = 'noopener';
+        }
+      };
+
+      const renderComposition = () => {
+        const composition = dados.composicao;
+        if (!composition) return;
+
+        const section = page.querySelector('#composicao');
+        const tbody = section?.querySelector('tbody');
+        if (!section || !tbody) return;
+
+        const kicker = section.querySelector('.ceua-section-kicker');
+        const subtitle = section.querySelector('.ceua-section-subtitle');
+        if (composition.portaria && kicker) kicker.textContent = composition.portaria;
+        if (composition.subtitulo && subtitle) subtitle.textContent = composition.subtitulo;
+
+        if (Array.isArray(composition.membros)) {
+          tbody.innerHTML = '';
+          composition.membros.forEach(member => {
+            const row = document.createElement('tr');
+            const seatCell = document.createElement('td');
+            seatCell.appendChild(makeElement('span', 'ceua-seat', member.assento || 'Assento'));
+            seatCell.appendChild(document.createElement('br'));
+            seatCell.append(document.createTextNode(member.indicacao || ''));
+
+            const memberCell = document.createElement('td');
+            memberCell.appendChild(makeElement('span', 'ceua-member-primary', `Titular — ${member.titular || ''}`));
+            memberCell.appendChild(makeElement('span', 'ceua-member-secondary', `Suplente — ${member.suplente || ''}`));
+
+            row.append(seatCell, memberCell);
+            tbody.appendChild(row);
+          });
+        }
+
+        if (dados.coordenacao) {
+          const coordination = page.querySelector('.ceua-coordination');
+          const name = coordination?.querySelector('strong');
+          const email = coordination?.querySelector('a');
+          if (name && dados.coordenacao.nome) name.textContent = dados.coordenacao.nome;
+          if (email && dados.coordenacao.email) {
+            email.textContent = dados.coordenacao.email;
+            email.href = `mailto:${dados.coordenacao.email}`;
+          }
+        }
+      };
+
+      const renderDocuments = () => {
+        if (!Array.isArray(dados.documentos)) return;
+        const grid = page.querySelector('.ceua-doc-grid');
+        if (!grid) return;
+
+        grid.innerHTML = '';
+        dados.documentos.forEach(group => {
+          const article = makeElement('article', 'ceua-doc-group');
+          const head = makeElement('div', 'ceua-doc-group-head');
+          head.appendChild(makeElement('span', 'ceua-doc-group-icon', group.icone || '□'));
+          head.lastElementChild.setAttribute('aria-hidden', 'true');
+          head.appendChild(makeElement('h3', '', group.titulo || 'Documentos'));
+
+          const list = makeElement('ul', 'ceua-doc-list');
+          (group.itens || []).forEach(item => {
+            const li = makeElement('li', 'ceua-doc-item');
+            const link = document.createElement('a');
+            configureLink(link, item.url);
+            link.textContent = item.texto || item.url || 'Documento';
+            li.appendChild(link);
+            list.appendChild(li);
+          });
+
+          article.append(head, list);
+          grid.appendChild(article);
+        });
+      };
+
+      renderComposition();
+      renderDocuments();
 
       const meetings = CEUA_REUNIOES
         .map(item => ({ ...item, date:makeLocalDate(item.data) }))
