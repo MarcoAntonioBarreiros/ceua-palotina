@@ -85,6 +85,10 @@ window.CEUA_DADOS = {
       icone: '§',
       itens: [
         {
+          texto: 'CONCEA — Conselho Nacional de Controle de Experimentação Animal (página oficial)',
+          url: 'https://www.gov.br/mcti/pt-br/composicao/colegiados/concea'
+        },
+        {
           texto: 'Diretriz da Prática de Eutanásia do CONCEA',
           url: 'https://palotina.ufpr.br/wp-content/uploads/2024/07/Anexo_Res_Norm_37_2018_CONCEA_Pratica_Eutanasia.pdf'
         },
@@ -121,10 +125,6 @@ window.CEUA_DADOS = {
         {
           texto: 'Formulários para cadastramento de instalações — ver orientações do CIUCA',
           url: '#ciuca'
-        },
-        {
-          texto: 'Formulário CEUA/Palotina — Relato de Caso',
-          url: 'https://palotina.ufpr.br/wp-content/uploads/2016/06/Formulário-CEUA.Palotina-Relato-de-Caso.doc'
         },
         {
           texto: 'Termo de Consentimento Livre e Esclarecido — TCLE',
