@@ -6,6 +6,10 @@
  * 2. Clique no lapis "Edit this file".
  * 3. Altere somente os valores entre aspas, mantendo virgulas, colchetes e chaves.
  * 4. Clique em "Commit changes".
+ *
+ * Nos documentos, o campo "palavras" e opcional: sao termos extras que a busca
+ * da Central de recursos reconhece alem do titulo do link (sinonimos, siglas,
+ * assuntos). Escreva sem acentos, separados por espaco.
  */
 window.CEUA_DADOS = {
   prazoDias: 15,
@@ -86,31 +90,38 @@ window.CEUA_DADOS = {
       itens: [
         {
           texto: 'CONCEA — Conselho Nacional de Controle de Experimentação Animal (página oficial)',
-          url: 'https://www.gov.br/mcti/pt-br/composicao/colegiados/concea'
+          url: 'https://www.gov.br/mcti/pt-br/composicao/colegiados/concea',
+          palavras: 'legislacao lei arouca 11794 resolucoes normativas rn mcti orgao federal'
         },
         {
           texto: 'Diretriz da Prática de Eutanásia do CONCEA',
-          url: 'https://palotina.ufpr.br/wp-content/uploads/2024/07/Anexo_Res_Norm_37_2018_CONCEA_Pratica_Eutanasia.pdf'
+          url: 'https://palotina.ufpr.br/wp-content/uploads/2024/07/Anexo_Res_Norm_37_2018_CONCEA_Pratica_Eutanasia.pdf',
+          palavras: 'eutanasia metodo humanitario morte destino final ponto final rn 37 anestesico sobredose'
         },
         {
           texto: 'Guia Brasileiro de produção, manutenção ou utilização de animais em ensino e pesquisa — CONCEA',
-          url: 'https://palotina.ufpr.br/wp-content/uploads/2024/07/guia_concea_1ed_animais-_ensino_ou_pesquisa_2023.pdf'
+          url: 'https://palotina.ufpr.br/wp-content/uploads/2024/07/guia_concea_1ed_animais-_ensino_ou_pesquisa_2023.pdf',
+          palavras: 'guia brasileiro alojamento manejo biotério roedores camundongo rato coelho peixe anfibio reptil ave ambiente enriquecimento'
         },
         {
           texto: 'Cria as CEUAs na UFPR — Resolução 86/11 CEPE',
-          url: 'https://palotina.ufpr.br/wp-content/uploads/2016/06/Resolução-cepe8611-CEUA-1.pdf'
+          url: 'https://palotina.ufpr.br/wp-content/uploads/2016/06/Resolução-cepe8611-CEUA-1.pdf',
+          palavras: 'criacao das ceuas ufpr resolucao cepe norma institucional'
         },
         {
           texto: 'Regimento Interno da CEUA/Palotina',
-          url: 'https://palotina.ufpr.br/wp-content/uploads/2023/02/REGIMENTO-INTERNO_CEUA.Palotina_2023__ASSINADO.pdf'
+          url: 'https://palotina.ufpr.br/wp-content/uploads/2023/02/REGIMENTO-INTERNO_CEUA.Palotina_2023__ASSINADO.pdf',
+          palavras: 'regimento funcionamento reunioes mandato relator recurso prazo tramitacao competencias'
         },
         {
           texto: 'Resolução CONCEA/MCTI nº 49, de 7 de maio de 2021',
-          url: 'https://palotina.ufpr.br/wp-content/uploads/2023/08/Res492021.pdf'
+          url: 'https://palotina.ufpr.br/wp-content/uploads/2023/08/Res492021.pdf',
+          palavras: 'resolucao normativa 49 2021 diretriz concea'
         },
         {
           texto: 'Instrução Normativa nº 03/2026-PRPI — instalações de uso animal',
-          url: 'https://ufpr.br/prpi/wp-content/uploads/2026/06/IN-03-2026-PRPI.pdf'
+          url: 'https://ufpr.br/prpi/wp-content/uploads/2026/06/IN-03-2026-PRPI.pdf',
+          palavras: 'in 03 instalacao biotério credenciamento cadastro ciuca prpi infraestrutura responsavel tecnico'
         }
       ]
     },
@@ -120,15 +131,23 @@ window.CEUA_DADOS = {
       itens: [
         {
           texto: 'Formulário Unificado de Autorização para Uso de Animais — ver orientações de envio',
-          url: '#solicitacoes'
+          url: '#solicitacoes',
+          palavras: 'formulario unificado solicitacao projeto protocolo submissao envio prazo parecer'
         },
         {
           texto: 'Formulários para cadastramento de instalações — ver orientações do CIUCA',
-          url: '#ciuca'
+          url: '#ciuca',
+          palavras: 'ciuca cadastro instalacao biotério credenciamento registro'
+        },
+        {
+          texto: 'Ajuda no preenchimento do item 8.A — guia da Redução e cálculo do número de animais',
+          url: 'calculo-amostral.html',
+          palavras: 'calculo amostral tamanho de amostra n numero de animais reducao 3rs estatistica formula poder do teste power alfa beta desvio padrao efeito g*power arrive equacao de recurso resource equation grupos delineamento justificativa item 8a 8.a'
         },
         {
           texto: 'Termo de Consentimento Livre e Esclarecido — TCLE',
-          url: 'https://palotina.ufpr.br/wp-content/uploads/2016/06/TERMO-DE-CONSENTIMENTO-LIVRE-E-ESCLARECIDO-CEUA.Palotina.doc'
+          url: 'https://palotina.ufpr.br/wp-content/uploads/2016/06/TERMO-DE-CONSENTIMENTO-LIVRE-E-ESCLARECIDO-CEUA.Palotina.doc',
+          palavras: 'tcle consentimento tutor proprietario animal de companhia estudo clinico autorizacao do dono'
         }
       ]
     },
@@ -138,11 +157,13 @@ window.CEUA_DADOS = {
       itens: [
         {
           texto: 'Iniciação em Ciência em Animais de Laboratório — FIOCRUZ',
-          url: 'https://campusvirtual.fiocruz.br/portal/?q=node/66494'
+          url: 'https://campusvirtual.fiocruz.br/portal/?q=node/66494',
+          palavras: 'curso capacitacao treinamento ead certificado animais de laboratorio manejo bem-estar'
         },
         {
           texto: 'Curso sobre Uso Animal — Embrapa',
-          url: 'https://ava.sede.embrapa.br/enrol/index.php?id=396'
+          url: 'https://ava.sede.embrapa.br/enrol/index.php?id=396',
+          palavras: 'curso capacitacao treinamento ead ava embrapa uso animal bem-estar'
         }
       ]
     }
