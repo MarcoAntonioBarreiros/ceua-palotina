@@ -47,15 +47,22 @@ h1{font-size:clamp(2.2rem,5vw,3.65rem);max-width:18ch;margin:.28em 0 .22em;color
 .field-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 17px}.field-card .num{font:800 .72rem var(--mono);color:#799184}.field-card h3{font-size:1rem;margin:5px 0 7px;color:#263f2e}.field-card p{font-size:.88rem;color:var(--soft);margin:0}.field-card .write{display:block;margin-top:9px;font:700 .77rem var(--mono);color:var(--blue)}
 .tablewrap{overflow:auto;border:1px solid var(--line);border-radius:13px;background:#fff}table{width:100%;border-collapse:collapse;min-width:790px;font-size:.9rem}th{background:var(--green-dark);color:#f5fbf6;text-align:left;padding:11px 13px;font-size:.79rem}td{padding:11px 13px;border-top:1px solid var(--line2);vertical-align:top}tr:hover td{background:#fafcf9}.pill{display:inline-block;font-size:.69rem;font-weight:800;padding:3px 8px;border-radius:999px;white-space:nowrap}.pill.auto{background:var(--green-pale);color:var(--green-dark)}.pill.soft{background:var(--amber-pale);color:var(--amber)}
 .source-list{margin:7px 0 0;padding-left:19px}.source-list li{margin:6px 0}
-/* Exemplos por linha da tabela "qual teste" */
-.ex-controls{margin:0 0 12px}
-.exbtn,.exbtn-demo{display:inline-block;margin-left:9px;font:800 .68rem var(--sans);letter-spacing:.03em;color:var(--green-dark);background:var(--green-pale);border:1px solid #c2d6c6;border-radius:999px;padding:5px 11px;white-space:nowrap}
-.exbtn{cursor:pointer}.exbtn:hover{background:#dcebde;border-color:#9eb2a3}.exbtn:focus-visible{outline:2px solid var(--green);outline-offset:2px}
-.exbtn[aria-expanded="true"]{background:var(--green);border-color:var(--green);color:#fff}
-.exbtn-demo{display:inline-block;cursor:default}
-.exrow td{background:var(--blue-pale);border-top:0;border-left:3px solid var(--blue-line);font-size:.88rem;color:#3b5474;padding:12px 14px}
-.exrow td strong{color:var(--blue)}
-tr.exrow:hover td{background:var(--blue-pale)}
+/* Exemplos da tabela "qual teste": tooltip flutuante */
+td.exp-cell{position:relative;padding-right:38px}
+.extrigger{display:block;width:100%;text-align:left;font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;-webkit-tap-highlight-color:transparent}
+.extrigger .extext{border-bottom:1px dotted #a9bdae;padding-bottom:1px;transition:border-color .15s,color .15s}
+.extrigger:hover .extext,.extrigger.is-open .extext{color:var(--green-dark);border-bottom-color:var(--green)}
+.extrigger:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:5px}
+.exmark{position:absolute;top:11px;right:11px;width:20px;height:20px;border-radius:50%;background:var(--green-pale);color:var(--green-dark);border:1px solid #c2d6c6;font:800 .7rem/18px var(--serif);text-align:center;transition:background .15s,border-color .15s,color .15s}
+.extrigger:hover .exmark,.extrigger.is-open .exmark,.extrigger:focus-visible .exmark{background:var(--green);border-color:var(--green);color:#fff}
+.exprint{display:none}
+#extip{position:fixed;z-index:80;left:0;top:0;max-width:380px;background:#1f3527;color:#e9f1eb;font:400 .875rem/1.5 var(--sans);padding:13px 15px;border-radius:11px;box-shadow:0 16px 42px rgba(20,45,30,.3);pointer-events:none;opacity:0;visibility:hidden;transition:opacity .14s ease,visibility .14s ease}
+#extip.is-visible{opacity:1;visibility:visible}
+#extip strong{color:#fff}
+#extip em{font-style:normal;font-weight:700;color:#bcd9c3}
+#extip::after{content:"";position:absolute;left:var(--arrow-x,22px);width:11px;height:11px;background:#1f3527;transform:translateX(-50%) rotate(45deg)}
+#extip[data-side="below"]::after{top:-5px}
+#extip[data-side="above"]::after{bottom:-5px}
 .source-path{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0 26px}.source-step{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:17px 16px}.source-step .snum{font:800 .7rem var(--mono);color:#78907d}.source-step h3{font-size:.98rem;margin:5px 0 7px;color:var(--green-dark)}.source-step p{font-size:.84rem;color:var(--soft);margin:0}.source-step.primary{border-color:#adc7b2;background:#f6faf6}.param-card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:20px 21px}.param-card h3{font-size:1.08rem;margin:0 0 9px;color:var(--green-dark)}.param-card p{font-size:.92rem;color:var(--soft);margin:.35em 0}.param-card ul{margin:9px 0 0;padding-left:19px}.param-card li{font-size:.9rem;color:var(--soft);margin:6px 0}.param-card .example{margin-top:13px;background:var(--green-pale);border-left:3px solid #8fab91;border-radius:8px;padding:10px 12px;font-size:.85rem;color:#39533f}.parameter-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.quickstart{margin-top:20px;background:var(--blue-pale);border:1px solid var(--blue-line);border-radius:12px;padding:17px 19px;color:#385276}.quickstart strong{color:var(--blue)}.quickstart ol{margin:8px 0 0;padding-left:20px}.quickstart li{margin:5px 0}
 .tool{background:var(--green-dark);border-radius:18px;padding:6px;box-shadow:var(--shadow)}.tool-in{background:#fbfcfa;border-radius:13px;padding:26px}
 .step-title{display:flex;align-items:center;gap:10px;margin-bottom:18px}.step{font:800 .74rem var(--mono);background:var(--green-pale);color:var(--green-dark);padding:5px 9px;border-radius:7px}.step-title h3{font-size:1.15rem;margin:0;color:#253f2d}
@@ -69,7 +76,7 @@ tr.exrow:hover td{background:var(--blue-pale)}
 .footer{padding:28px 0 42px;border-top:1px solid var(--line);color:var(--soft);font-size:.83rem}.footer strong{color:var(--green-dark)}
 @media(max-width:900px){.nav{display:none}.grid3,.grid7,.source-path{grid-template-columns:1fr 1fr}.result-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:680px){.wrap{padding:0 17px}.hero{padding-top:48px}.grid3,.grid2,.grid7,.source-path,.parameter-grid,.formgrid,.subform,.result-grid{grid-template-columns:1fr}.tool-in{padding:18px}.result{padding:20px}.rf.full{grid-column:auto}.f.full{grid-column:auto}}
-@media print{.top,.hero-actions,.result-actions,.assistant-controls,.exbtn,.exbtn-demo,.ex-controls{display:none!important}.exrow[hidden]{display:table-row!important}body{background:#fff}.section{padding:20px 0}.tool{background:none;box-shadow:none;padding:0}.tool-in{padding:0}.result{break-inside:avoid}}
+@media print{.top,.hero-actions,.result-actions,.assistant-controls,.exmark,#extip{display:none!important}td.exp-cell{padding-right:13px}.extrigger .extext{border-bottom:0}.exprint{display:block;margin-top:7px;font-size:.84rem;color:#3d5a45}body{background:#fff}.section{padding:20px 0}.tool{background:none;box-shadow:none;padding:0}.tool-in{padding:0}.result{break-inside:avoid}}
 </style>
 </head>
 <body>
@@ -110,50 +117,35 @@ tr.exrow:hover td{background:var(--blue-pale)}
 
 <section class="section" id="testes"><div class="wrap">
   <div class="kicker">Campo “tipo de teste”</div><h2>Como saber qual teste declarar?</h2>
-  <p class="lead">Comece pelo que você mede e por quem fornece cada observação. A tabela mostra a família de análise mais comum para cada situação e se esta página calcula o N diretamente ou orienta o cálculo em software específico. Em cada linha, o botão <span class="exbtn-demo">exemplo</span> abre um caso típico para você reconhecer onde o seu projeto se encaixa.</p>
-  <div class="ex-controls"><button class="btn secondary" id="exAllBtn" type="button" aria-expanded="false">Mostrar todos os exemplos</button></div>
+  <p class="lead">Comece pelo que você mede e por quem fornece cada observação. A tabela mostra a família de análise mais comum para cada situação e se esta página calcula o N diretamente ou orienta o cálculo em software específico. <strong>Passe o mouse sobre o tipo de estudo</strong> — ou toque nele, no celular — para ver um exemplo prático e reconhecer onde o seu projeto se encaixa.</p>
   <div class="tablewrap"><table><thead><tr><th>Seu experimento</th><th>Tipo de teste / modelo</th><th>Como determinar N</th><th></th></tr></thead><tbody>
-    <tr><td>Desfecho numérico contínuo · 2 grupos de animais diferentes<button class="exbtn" type="button" aria-controls="ex-t1" aria-expanded="false">exemplo</button></td><td>Teste t para duas amostras independentes</td><td>Cálculo de poder a priori</td><td><span class="pill auto">calcula aqui</span></td></tr>
-    <tr class="exrow" id="ex-t1" hidden><td colspan="4">Ganho de peso diário em bezerros que recebem ração convencional ou ração suplementada com prebiótico.</td></tr>
+    <tr><td class="exp-cell"><button class="extrigger" type="button"><span class="extext">Desfecho numérico contínuo · 2 grupos de animais diferentes</span><span class="exmark" aria-hidden="true">i</span></button><span class="exprint"><strong>Exemplo:</strong> ganho de peso diário em bezerros que recebem ração convencional ou ração suplementada com prebiótico.</span></td><td>Teste t para duas amostras independentes</td><td>Cálculo de poder a priori</td><td><span class="pill auto">calcula aqui</span></td></tr>
 
-    <tr><td>Desfecho contínuo · mesmo animal em 2 condições/momentos<button class="exbtn" type="button" aria-controls="ex-t2" aria-expanded="false">exemplo</button></td><td>Teste t pareado</td><td>Cálculo de poder a priori</td><td><span class="pill auto">calcula aqui</span></td></tr>
-    <tr class="exrow" id="ex-t2" hidden><td colspan="4">Frequência cardíaca e respiratória em ovinos, antes e 30 minutos após a aplicação de um sedativo.</td></tr>
+    <tr><td class="exp-cell"><button class="extrigger" type="button"><span class="extext">Desfecho contínuo · mesmo animal em 2 condições/momentos</span><span class="exmark" aria-hidden="true">i</span></button><span class="exprint"><strong>Exemplo:</strong> frequência cardíaca e respiratória em ovinos, antes e 30 minutos após a aplicação de um sedativo.</span></td><td>Teste t pareado</td><td>Cálculo de poder a priori</td><td><span class="pill auto">calcula aqui</span></td></tr>
 
-    <tr><td>Desfecho contínuo · 3 ou mais grupos independentes<button class="exbtn" type="button" aria-controls="ex-t3" aria-expanded="false">exemplo</button></td><td>ANOVA de uma via</td><td>G*Power · efeito f</td><td><span class="pill soft">orienta software</span></td></tr>
-    <tr class="exrow" id="ex-t3" hidden><td colspan="4">Níveis séricos de interleucinas em ratos tratados com três doses de um anti-inflamatório, mais um grupo controle.</td></tr>
+    <tr><td class="exp-cell"><button class="extrigger" type="button"><span class="extext">Desfecho contínuo · 3 ou mais grupos independentes</span><span class="exmark" aria-hidden="true">i</span></button><span class="exprint"><strong>Exemplo:</strong> níveis séricos de interleucinas em ratos tratados com três doses de um anti-inflamatório, mais um grupo controle.</span></td><td>ANOVA de uma via</td><td>G*Power · efeito f</td><td><span class="pill soft">orienta software</span></td></tr>
 
-    <tr><td>Mesmo animal medido em vários tempos<button class="exbtn" type="button" aria-controls="ex-t4" aria-expanded="false">exemplo</button></td><td>Modelo linear misto / ANOVA de medidas repetidas</td><td>G*Power em desenhos simples ou simulação do modelo</td><td><span class="pill soft">orienta software</span></td></tr>
-    <tr class="exrow" id="ex-t4" hidden><td colspan="4">Curva glicêmica em cães diabéticos, medida em 0, 2, 4, 6 e 12 horas após a refeição.</td></tr>
+    <tr><td class="exp-cell"><button class="extrigger" type="button"><span class="extext">Mesmo animal medido em vários tempos</span><span class="exmark" aria-hidden="true">i</span></button><span class="exprint"><strong>Exemplo:</strong> curva glicêmica em cães diabéticos, medida em 0, 2, 4, 6 e 12 horas após a refeição.</span></td><td>Modelo linear misto / ANOVA de medidas repetidas</td><td>G*Power em desenhos simples ou simulação do modelo</td><td><span class="pill soft">orienta software</span></td></tr>
 
-    <tr><td>Dois ou mais fatores (ex.: tratamento × sexo)<button class="exbtn" type="button" aria-controls="ex-t5" aria-expanded="false">exemplo</button></td><td>ANOVA fatorial / modelo linear</td><td>G*Power ou simulação, conforme efeito primário</td><td><span class="pill soft">orienta software</span></td></tr>
-    <tr class="exrow" id="ex-t5" hidden><td colspan="4">Resposta imune de leitões avaliando dieta (padrão ou hiperproteica) × sexo. Como a ração é fornecida por baia, a baia é a unidade experimental do <em>cálculo</em>; o número declarado no item 8.A continua sendo o de <strong>animais</strong> — por exemplo, 10 baias por grupo × 4 leitões = 40 animais. O assistente faz essa conversão no passo 2.</td></tr>
+    <tr><td class="exp-cell"><button class="extrigger" type="button"><span class="extext">Dois ou mais fatores (ex.: tratamento × sexo)</span><span class="exmark" aria-hidden="true">i</span></button><span class="exprint"><strong>Exemplo:</strong> resposta imune de leitões avaliando dieta (padrão ou hiperproteica) × sexo. Como a ração é fornecida por baia, a baia é a unidade experimental do <em>cálculo</em>; o número declarado no item 8.A continua sendo o de <strong>animais</strong> — por exemplo, 10 baias por grupo × 4 leitões = 40 animais. O assistente faz essa conversão no passo 2.</span></td><td>ANOVA fatorial / modelo linear</td><td>G*Power ou simulação, conforme efeito primário</td><td><span class="pill soft">orienta software</span></td></tr>
 
-    <tr><td>Doses crescentes de um mesmo tratamento<button class="exbtn" type="button" aria-controls="ex-t6" aria-expanded="false">exemplo</button></td><td>Regressão / modelo dose–resposta</td><td>Simulação coerente com o modelo (ex.: pacote drc no R)</td><td><span class="pill soft">orienta software</span></td></tr>
-    <tr class="exrow" id="ex-t6" hidden><td colspan="4">Determinação da dose efetiva (ED50) de um anestésico local em coelhos, testando cinco concentrações crescentes.</td></tr>
+    <tr><td class="exp-cell"><button class="extrigger" type="button"><span class="extext">Doses crescentes de um mesmo tratamento</span><span class="exmark" aria-hidden="true">i</span></button><span class="exprint"><strong>Exemplo:</strong> determinação da dose efetiva (ED50) de um anestésico local em coelhos, testando cinco concentrações crescentes.</span></td><td>Regressão / modelo dose–resposta</td><td>Simulação coerente com o modelo (ex.: pacote drc no R)</td><td><span class="pill soft">orienta software</span></td></tr>
 
-    <tr><td>Desfecho sim/não · 2 grupos independentes<button class="exbtn" type="button" aria-controls="ex-t7" aria-expanded="false">exemplo</button></td><td>Comparação de duas proporções</td><td>Aproximação normal para duas proporções</td><td><span class="pill auto">calcula aqui</span></td></tr>
-    <tr class="exrow" id="ex-t7" hidden><td colspan="4">Taxa de concepção à IATF em vacas submetidas a dois protocolos hormonais distintos.</td></tr>
+    <tr><td class="exp-cell"><button class="extrigger" type="button"><span class="extext">Desfecho sim/não · 2 grupos independentes</span><span class="exmark" aria-hidden="true">i</span></button><span class="exprint"><strong>Exemplo:</strong> taxa de concepção à IATF em vacas submetidas a dois protocolos hormonais distintos.</span></td><td>Comparação de duas proporções</td><td>Aproximação normal para duas proporções</td><td><span class="pill auto">calcula aqui</span></td></tr>
 
-    <tr><td>Desfecho sim/não pareado/repetido<button class="exbtn" type="button" aria-controls="ex-t8" aria-expanded="false">exemplo</button></td><td>McNemar / modelo binomial misto</td><td>Software específico / simulação</td><td><span class="pill soft">orienta software</span></td></tr>
-    <tr class="exrow" id="ex-t8" hidden><td colspan="4">Cura clínica de pododermatite comparando, no mesmo animal, o membro tratado com pomada e o membro contralateral com placebo.</td></tr>
+    <tr><td class="exp-cell"><button class="extrigger" type="button"><span class="extext">Desfecho sim/não pareado/repetido</span><span class="exmark" aria-hidden="true">i</span></button><span class="exprint"><strong>Exemplo:</strong> cura clínica de pododermatite comparando, no mesmo animal, o membro tratado com pomada e o membro contralateral com placebo.</span></td><td>McNemar / modelo binomial misto</td><td>Software específico / simulação</td><td><span class="pill soft">orienta software</span></td></tr>
 
-    <tr><td>Contagem (nº de eventos, lesões etc.)<button class="exbtn" type="button" aria-controls="ex-t9" aria-expanded="false">exemplo</button></td><td>Poisson / binomial negativa</td><td>Simulação do modelo planejado</td><td><span class="pill soft">orienta software</span></td></tr>
-    <tr class="exrow" id="ex-t9" hidden><td colspan="4">Número de ovos por grama de fezes (OPG) em novilhas após diferentes tratamentos anti-helmínticos.</td></tr>
+    <tr><td class="exp-cell"><button class="extrigger" type="button"><span class="extext">Contagem (nº de eventos, lesões etc.)</span><span class="exmark" aria-hidden="true">i</span></button><span class="exprint"><strong>Exemplo:</strong> número de ovos por grama de fezes (OPG) em novilhas após diferentes tratamentos anti-helmínticos.</span></td><td>Poisson / binomial negativa</td><td>Simulação do modelo planejado</td><td><span class="pill soft">orienta software</span></td></tr>
 
-    <tr><td>Escore ordinal<button class="exbtn" type="button" aria-controls="ex-t10" aria-expanded="false">exemplo</button></td><td>Regressão ordinal</td><td>Simulação / software específico</td><td><span class="pill soft">orienta software</span></td></tr>
-    <tr class="exrow" id="ex-t10" hidden><td colspan="4">Severidade do corrimento vaginal puerperal graduada de 0 a 3 (Metricheck) em vacas leiteiras.</td></tr>
+    <tr><td class="exp-cell"><button class="extrigger" type="button"><span class="extext">Escore ordinal</span><span class="exmark" aria-hidden="true">i</span></button><span class="exprint"><strong>Exemplo:</strong> severidade do corrimento vaginal puerperal graduada de 0 a 3 (Metricheck) em vacas leiteiras.</span></td><td>Regressão ordinal</td><td>Simulação / software específico</td><td><span class="pill soft">orienta software</span></td></tr>
 
-    <tr><td>Tempo até evento / sobrevida<button class="exbtn" type="button" aria-controls="ex-t11" aria-expanded="false">exemplo</button></td><td>Log-rank / regressão de Cox</td><td>Cálculo guiado pelo número de eventos</td><td><span class="pill soft">orienta software</span></td></tr>
-    <tr class="exrow" id="ex-t11" hidden><td colspan="4">Tempo, em dias, até a involução uterina completa no pós-parto de fêmeas bovinas.</td></tr>
+    <tr><td class="exp-cell"><button class="extrigger" type="button"><span class="extext">Tempo até evento / sobrevida</span><span class="exmark" aria-hidden="true">i</span></button><span class="exprint"><strong>Exemplo:</strong> tempo, em dias, até a involução uterina completa no pós-parto de fêmeas bovinas.</span></td><td>Log-rank / regressão de Cox</td><td>Cálculo guiado pelo número de eventos</td><td><span class="pill soft">orienta software</span></td></tr>
 
-    <tr><td>Exploratório com ANOVA e sem parâmetros prévios<button class="exbtn" type="button" aria-controls="ex-t12" aria-expanded="false">exemplo</button></td><td>ANOVA · estudo exploratório</td><td>Equação de recursos, quando aplicável</td><td><span class="pill auto">calcula aqui</span></td></tr>
-    <tr class="exrow" id="ex-t12" hidden><td colspan="4">Triagem exploratória de quatro extratos fitoterápicos sobre parâmetros hematológicos em ratos, sem estimativas prévias na literatura.</td></tr>
+    <tr><td class="exp-cell"><button class="extrigger" type="button"><span class="extext">Exploratório com ANOVA e sem parâmetros prévios</span><span class="exmark" aria-hidden="true">i</span></button><span class="exprint"><strong>Exemplo:</strong> triagem exploratória de quatro extratos fitoterápicos sobre parâmetros hematológicos em ratos, sem estimativas prévias na literatura.</span></td><td>ANOVA · estudo exploratório</td><td>Equação de recursos, quando aplicável</td><td><span class="pill auto">calcula aqui</span></td></tr>
 
-    <tr><td>Piloto de viabilidade / padronização de técnica<button class="exbtn" type="button" aria-controls="ex-t13" aria-expanded="false">exemplo</button></td><td>Estatística descritiva — sem teste de hipótese formal</td><td>N justificado pelo objetivo operacional do piloto</td><td><span class="pill soft">orienta aqui</span></td></tr>
-    <tr class="exrow" id="ex-t13" hidden><td colspan="4">Padronização da técnica de inserção de espéculo e avaliação da aceitação do manejo em 4 matrizes, antes do estudo principal.</td></tr>
+    <tr><td class="exp-cell"><button class="extrigger" type="button"><span class="extext">Piloto de viabilidade / padronização de técnica</span><span class="exmark" aria-hidden="true">i</span></button><span class="exprint"><strong>Exemplo:</strong> padronização da técnica de inserção de espéculo e avaliação da aceitação do manejo em 4 matrizes, antes do estudo principal.</span></td><td>Estatística descritiva — sem teste de hipótese formal</td><td>N justificado pelo objetivo operacional do piloto</td><td><span class="pill soft">orienta aqui</span></td></tr>
 
-    <tr><td>Levantamento de prevalência/incidência, sem grupos de comparação<button class="exbtn" type="button" aria-controls="ex-t14" aria-expanded="false">exemplo</button></td><td>Estimativa de proporção com intervalo de confiança</td><td>Amostragem para a precisão desejada; considerar conglomerados</td><td><span class="pill soft">fora do assistente</span></td></tr>
-    <tr class="exrow" id="ex-t14" hidden><td colspan="4">Estimativa da prevalência de endometrite clínica em rebanhos leiteiros de uma região. Atenção: como os animais estão agrupados por rebanho, a fórmula simples de proporção subestima o N — a amostragem precisa considerar o efeito de conglomerado. O mesmo vale para agrupamento por baia, gaiola ou tanque.</td></tr>
+    <tr><td class="exp-cell"><button class="extrigger" type="button"><span class="extext">Levantamento de prevalência/incidência, sem grupos de comparação</span><span class="exmark" aria-hidden="true">i</span></button><span class="exprint"><strong>Exemplo:</strong> estimativa da prevalência de endometrite clínica em rebanhos leiteiros de uma região. <em>Atenção:</em> como os animais estão agrupados por rebanho, a fórmula simples de proporção subestima o N — a amostragem precisa considerar o efeito de conglomerado. O mesmo vale para agrupamento por baia, gaiola ou tanque.</span></td><td>Estimativa de proporção com intervalo de confiança</td><td>Amostragem para a precisão desejada; considerar conglomerados</td><td><span class="pill soft">fora do assistente</span></td></tr>
   </tbody></table></div>
   <div class="callout blue"><strong>Importante:</strong> “não tenho dados prévios” não significa automaticamente “use Equação de Recursos”. Se o estudo é confirmatório, procure parâmetros em literatura comparável ou em piloto. A Equação de Recursos é uma alternativa limitada para desenhos exploratórios baseados em ANOVA e não garante um poder estatístico definido.</div>
 </div></section>
@@ -331,6 +323,8 @@ tr.exrow:hover td{background:var(--blue-pale)}
   </ol>
   <div class="callout blue"><strong>Escopo:</strong> esta é uma ferramenta orientadora para apoiar a justificativa do número de animais. Desenhos complexos podem exigir cálculo por simulação ou avaliação estatística específica. A aprovação do protocolo permanece condicionada à avaliação da CEUA.</div>
 </div></section>
+
+<div id="extip" role="tooltip"></div>
 
 <footer class="footer"><div class="wrap"><strong>CEUA · Material de apoio</strong> — Redução do número de animais e preenchimento do item 8.A. Agosto de 2026. · <a href="index.html">Voltar à página da CEUA/Palotina</a></div></footer>
 
@@ -566,31 +560,67 @@ function clearAll(){
   $('tipo').value='continuo';$('estrutura').value='independente';$('grupos').value=2;$('unidade').value='animal';$('apu').value=2;$('info').value='reais';$('delta').value=20;$('sd').value=30;$('dcohen').value=.8;$('p0').value=.3;$('p1').value=.6;$('natureza').value='confirmatorio';$('alpha').value='.05';$('power').value='.80';$('sides').value='two';$('loss').value='0';
   $('result').classList.add('hidden');$('external').classList.add('hidden');clearMsg();pendingGuidance=null;updateUI();
 }
-/* Exemplos da tabela "qual teste": abrem por clique (funciona em toque e teclado). */
-const exButtons=[...document.querySelectorAll('.exbtn')];
-const setExample=(btn,open)=>{
-  const row=document.getElementById(btn.getAttribute('aria-controls'));
-  if(!row) return;
-  btn.setAttribute('aria-expanded',String(open));
-  row.hidden=!open;
-};
-exButtons.forEach(btn=>btn.addEventListener('click',()=>{
-  setExample(btn,btn.getAttribute('aria-expanded')!=='true');
-  syncExAll();
-}));
-const exAllBtn=$('exAllBtn');
-function syncExAll(){
-  if(!exAllBtn) return;
-  const allOpen=exButtons.length>0&&exButtons.every(b=>b.getAttribute('aria-expanded')==='true');
-  exAllBtn.setAttribute('aria-expanded',String(allOpen));
-  exAllBtn.textContent=allOpen?'Ocultar os exemplos':'Mostrar todos os exemplos';
+/* Exemplos da tabela "qual teste": tooltip flutuante.
+   Mouse e teclado abrem por hover/foco; no toque, abre e fecha por toque.
+   O texto vem do proprio .exprint da celula, que e o que sai na impressao. */
+const exTip=$('extip');
+const exTriggers=[...document.querySelectorAll('.extrigger')];
+let exCurrent=null, exPointer='mouse';
+
+function exPlace(trigger){
+  const r=trigger.getBoundingClientRect();
+  exTip.style.maxWidth=Math.min(380,window.innerWidth-24)+'px';
+  const t=exTip.getBoundingClientRect();
+  const center=r.left+r.width/2;
+  const left=Math.max(12,Math.min(center-t.width/2,window.innerWidth-t.width-12));
+  let top=r.bottom+10, side='below';
+  if(top+t.height>window.innerHeight-12){
+    if(r.top-t.height-10>12){ top=r.top-t.height-10; side='above'; }
+    else { top=Math.max(12,window.innerHeight-t.height-12); }
+  }
+  exTip.style.left=left+'px';
+  exTip.style.top=top+'px';
+  exTip.dataset.side=side;
+  exTip.style.setProperty('--arrow-x',Math.max(16,Math.min(center-left,t.width-16))+'px');
 }
-exAllBtn?.addEventListener('click',()=>{
-  const open=exAllBtn.getAttribute('aria-expanded')!=='true';
-  exButtons.forEach(btn=>setExample(btn,open));
-  syncExAll();
+function exShow(trigger){
+  const source=trigger.parentElement.querySelector('.exprint');
+  if(!source) return;
+  if(exCurrent&&exCurrent!==trigger){exCurrent.classList.remove('is-open');exCurrent.removeAttribute('aria-describedby');}
+  exTip.innerHTML=source.innerHTML;
+  exPlace(trigger);
+  exTip.classList.add('is-visible');
+  trigger.classList.add('is-open');
+  trigger.setAttribute('aria-describedby','extip');
+  exCurrent=trigger;
+}
+function exHide(){
+  if(!exCurrent) return;
+  exTip.classList.remove('is-visible');
+  exCurrent.classList.remove('is-open');
+  exCurrent.removeAttribute('aria-describedby');
+  exCurrent=null;
+}
+exTriggers.forEach(trigger=>{
+  trigger.addEventListener('pointerenter',e=>{exPointer=e.pointerType||'mouse';if(e.pointerType!=='touch')exShow(trigger)});
+  trigger.addEventListener('pointerleave',e=>{if(e.pointerType!=='touch')exHide()});
+  trigger.addEventListener('focus',()=>exShow(trigger));
+  trigger.addEventListener('blur',exHide);
+  trigger.addEventListener('click',e=>{
+    e.preventDefault();
+    if(exCurrent===trigger&&exPointer==='touch') exHide(); else exShow(trigger);
+  });
 });
-syncExAll();
+document.addEventListener('keydown',e=>{if(e.key==='Escape')exHide()});
+/* Rolar fecha o tooltip — exceto quando ele foi aberto pelo foco: navegar por
+   teclado rola a pagina ate o gatilho, e fechar ali deixaria o usuario de
+   teclado sem ver o exemplo. Nesse caso, reposiciona. */
+document.addEventListener('scroll',()=>{
+  if(!exCurrent) return;
+  if(document.activeElement===exCurrent) exPlace(exCurrent); else exHide();
+},{passive:true,capture:true});
+window.addEventListener('resize',exHide);
+document.addEventListener('pointerdown',e=>{if(exCurrent&&!e.target.closest('.extrigger'))exHide()},true);
 
 ['tipo','estrutura','grupos','unidade','info','sides','loss'].forEach(id=>$(id).addEventListener('change',updateUI));
 $('calcBtn').addEventListener('click',calculate);$('finishBtn').addEventListener('click',finishExternal);$('copyBtn').addEventListener('click',copyResult);$('clearBtn').addEventListener('click',clearAll);updateUI();
