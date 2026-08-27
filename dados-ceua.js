@@ -169,3 +169,147 @@ window.CEUA_DADOS = {
     }
   ]
 };
+
+/*
+ * Destaque em vídeo da página inicial.
+ * O bloco só aparece quando o arquivo de vídeo está disponível no GitHub Pages.
+ * Assim, esta alteração pode ser publicada antes do upload do MP4 sem quebrar a página.
+ */
+(function iniciarVideoDestaqueCEUA() {
+  const VIDEO_SRC = 'ceuafinal-web.mp4';
+  const VIDEO_POSTER = 'ceuafinal-poster.jpg';
+
+  function montarVideo() {
+    const prioridade = document.querySelector('.ceua-priority');
+    const navegacao = document.querySelector('.ceua-sticky-nav');
+
+    if (!prioridade || !navegacao || document.querySelector('.ceua-video-feature')) return;
+
+    if (!document.getElementById('ceua-video-feature-style')) {
+      const style = document.createElement('style');
+      style.id = 'ceua-video-feature-style';
+      style.textContent = `
+        .ceua-video-feature[hidden] { display:none !important; }
+        .ceua-video-feature {
+          position:relative;
+          overflow:hidden;
+          margin:28px 34px 0;
+          padding:22px;
+          border:1px solid rgba(255,255,255,.13);
+          border-radius:22px;
+          background:
+            radial-gradient(circle at 92% 4%, rgba(142,224,200,.14), transparent 24%),
+            linear-gradient(135deg, #071f33 0%, #0d4168 62%, #0f6d75 100%);
+          box-shadow:0 16px 38px rgba(7,31,51,.12);
+        }
+        .ceua-video-feature::after {
+          content:"";
+          position:absolute;
+          width:190px;
+          height:190px;
+          right:-82px;
+          top:-105px;
+          border:1px solid rgba(255,255,255,.1);
+          border-radius:50%;
+          pointer-events:none;
+        }
+        .ceua-video-feature-head {
+          position:relative;
+          z-index:1;
+          display:flex;
+          align-items:flex-end;
+          justify-content:space-between;
+          gap:18px;
+          margin-bottom:16px;
+        }
+        .ceua-video-kicker {
+          margin:0 0 4px;
+          color:#8ee0c8;
+          font-size:.72rem;
+          font-weight:850;
+          letter-spacing:.12em;
+          text-transform:uppercase;
+        }
+        .ceua-video-feature h2 {
+          margin:0;
+          color:#fff;
+          font-size:clamp(1.3rem, 2.4vw, 1.8rem);
+          line-height:1.15;
+          letter-spacing:-.025em;
+        }
+        .ceua-video-meta {
+          flex:0 0 auto;
+          margin:0;
+          padding:7px 10px;
+          border:1px solid rgba(255,255,255,.16);
+          border-radius:999px;
+          background:rgba(255,255,255,.08);
+          color:rgba(255,255,255,.78);
+          font-size:.76rem;
+          font-weight:700;
+          white-space:nowrap;
+        }
+        .ceua-video-shell {
+          position:relative;
+          z-index:1;
+          overflow:hidden;
+          aspect-ratio:16 / 9;
+          border:1px solid rgba(255,255,255,.17);
+          border-radius:17px;
+          background:#02070b;
+          box-shadow:0 12px 30px rgba(0,0,0,.24);
+        }
+        .ceua-video-shell video {
+          display:block;
+          width:100%;
+          height:100%;
+          object-fit:contain;
+          background:#02070b;
+        }
+        @media (max-width:740px) {
+          .ceua-video-feature { margin:22px 12px 0; padding:14px; border-radius:18px; }
+          .ceua-video-feature-head { align-items:flex-start; flex-direction:column; gap:9px; margin-bottom:12px; }
+          .ceua-video-meta { white-space:normal; }
+          .ceua-video-shell { border-radius:13px; }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    const bloco = document.createElement('section');
+    bloco.className = 'ceua-video-feature';
+    bloco.hidden = true;
+    bloco.setAttribute('aria-labelledby', 'ceua-video-feature-title');
+    bloco.innerHTML = `
+      <div class="ceua-video-feature-head">
+        <div>
+          <p class="ceua-video-kicker">Vídeo de orientação</p>
+          <h2 id="ceua-video-feature-title">CIUCA 2.0 no Setor Palotina</h2>
+        </div>
+        <p class="ceua-video-meta">7 min 46 s · CEUA/Palotina</p>
+      </div>
+      <div class="ceua-video-shell">
+        <video controls playsinline preload="metadata" poster="${VIDEO_POSTER}" aria-label="Vídeo CIUCA 2.0 no Setor Palotina">
+          <source src="${VIDEO_SRC}" type="video/mp4">
+          Seu navegador não suporta a reprodução deste vídeo.
+        </video>
+      </div>
+    `;
+
+    navegacao.before(bloco);
+
+    const video = bloco.querySelector('video');
+    video.addEventListener('loadedmetadata', function () {
+      bloco.hidden = false;
+    }, { once:true });
+    video.addEventListener('error', function () {
+      bloco.remove();
+    }, { once:true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', montarVideo, { once:true });
+  } else {
+    montarVideo();
+  }
+})();
