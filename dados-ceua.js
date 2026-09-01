@@ -313,3 +313,275 @@ window.CEUA_DADOS = {
     montarVideo();
   }
 })();
+
+/* ==========================================================================
+ * BLOCO REMOVÍVEL — Guia de enquadramento embutido na seção 02 (CIUCA)
+ * --------------------------------------------------------------------------
+ * Coloca o guia interativo dentro de um container na própria página, logo
+ * ANTES do cartão dos formulários de instalação. O container mede a altura
+ * real do conteúdo e se ajusta sozinho a cada troca de aba/etapa — por isso
+ * não há barra de rolagem interna nem espaço sobrando.
+ *
+ * PARA DESLIGAR sem apagar nada .... troque   ATIVO: true   por   ATIVO: false
+ * PARA REMOVER DE VEZ .............. apague deste comentário até a linha
+ *                                    "FIM DO BLOCO REMOVÍVEL", no fim do arquivo.
+ *
+ * Nada mais na página depende deste bloco: o botão "Abrir formulários" e todo
+ * o resto continuam funcionando sozinhos.
+ * ========================================================================== */
+(function iniciarGuiaEnquadramentoCEUA() {
+  const CFG = {
+    ATIVO: true,
+
+    /* Página mostrada dentro do container.
+       Quando a versão v3 sair do preview e for para o repositório de produção,
+       basta trocar estas duas URLs para .../CEUA_form/ciuca/guia-enquadramento.html */
+    URL: 'https://marcoantoniobarreiros.github.io/CEUA_form-ciuca-v3-preview/ciuca/guia-enquadramento.html?embed=1',
+    URL_PAGINA_INTEIRA: 'https://marcoantoniobarreiros.github.io/CEUA_form-ciuca-v3-preview/ciuca/guia-enquadramento.html',
+
+    /* O container é inserido imediatamente ANTES deste elemento.
+       '#ciuca .ceua-intro-grid' = antes do cartão "Abrir formulários".
+       Para jogá-lo mais para baixo, use '#ciuca .ceua-timeline'. */
+    ANTES_DE: '#ciuca .ceua-intro-grid',
+
+    /* Marca que precisa existir na página carregada. Se não existir (link
+       quebrado, 404), o container se remove sozinho e a página segue normal. */
+    CONFERE: '#guia-ceua',
+
+    ALTURA_INICIAL: 900,
+    ALTURA_MINIMA: 420,
+
+    KICKER: 'Antes de escolher o formulário',
+    TITULO: 'Guia de enquadramento e licenciamento',
+    RESUMO: 'Verifique se a estrutura é uma instalação de uso de animais, qual é o caminho no CIUCA e quais critérios normativos se aplicam ao grupo animal — antes de preencher o formulário.'
+  };
+
+  function montarGuia() {
+    if (!CFG.ATIVO) return;
+
+    const ancora = document.querySelector(CFG.ANTES_DE);
+    if (!ancora || document.querySelector('.ceua-guia-embed')) return;
+
+    if (!document.getElementById('ceua-guia-embed-style')) {
+      const style = document.createElement('style');
+      style.id = 'ceua-guia-embed-style';
+      style.textContent = `
+        .ceua-guia-embed { margin:0 0 26px; }
+        .ceua-guia-embed-head {
+          display:flex;
+          align-items:flex-end;
+          justify-content:space-between;
+          flex-wrap:wrap;
+          gap:16px;
+          margin-bottom:14px;
+        }
+        .ceua-guia-embed-kicker {
+          margin:0 0 5px;
+          color:var(--ceua-green-700,#26704b);
+          font-size:.72rem;
+          font-weight:850;
+          letter-spacing:.12em;
+          text-transform:uppercase;
+        }
+        .ceua-guia-embed h3 {
+          margin:0 0 7px;
+          color:var(--ceua-navy-900,#0a2d48);
+          font-size:clamp(1.15rem, 2.1vw, 1.5rem);
+          line-height:1.2;
+          letter-spacing:-.02em;
+        }
+        .ceua-guia-embed-sub {
+          margin:0;
+          max-width:660px;
+          color:var(--ceua-muted,#607080);
+          font-size:.9rem;
+          line-height:1.5;
+        }
+        .ceua-guia-embed-open {
+          flex:0 0 auto;
+          display:inline-block;
+          padding:10px 15px;
+          border:1px solid var(--ceua-line,#dce5eb);
+          border-radius:999px;
+          background:#fff;
+          color:var(--ceua-navy-800,#0d4168);
+          font-size:.8rem;
+          font-weight:800;
+          text-decoration:none;
+          white-space:nowrap;
+        }
+        .ceua-guia-embed-open:hover,
+        .ceua-guia-embed-open:focus-visible {
+          border-color:var(--ceua-green-600,#31845d);
+          color:var(--ceua-green-700,#26704b);
+        }
+        .ceua-guia-embed-shell {
+          overflow:hidden;
+          border:1px solid var(--ceua-line,#dce5eb);
+          border-radius:var(--ceua-radius-lg,20px);
+          background:#e8f4f6;
+          box-shadow:var(--ceua-shadow-sm,0 9px 26px rgba(7,31,51,.09));
+        }
+        .ceua-guia-embed-shell iframe {
+          display:block;
+          width:100%;
+          border:0;
+        }
+        @media (max-width:740px) {
+          .ceua-guia-embed-head { align-items:flex-start; flex-direction:column; gap:10px; }
+          .ceua-guia-embed-open { white-space:normal; }
+          .ceua-guia-embed-shell { border-radius:var(--ceua-radius-md,14px); }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    const bloco = document.createElement('div');
+    bloco.className = 'ceua-guia-embed';
+    bloco.setAttribute('aria-labelledby', 'ceua-guia-embed-title');
+    bloco.innerHTML = `
+      <div class="ceua-guia-embed-head">
+        <div>
+          <p class="ceua-guia-embed-kicker">${CFG.KICKER}</p>
+          <h3 id="ceua-guia-embed-title">${CFG.TITULO}</h3>
+          <p class="ceua-guia-embed-sub">${CFG.RESUMO}</p>
+        </div>
+        <a class="ceua-guia-embed-open" href="${CFG.URL_PAGINA_INTEIRA}" target="_blank" rel="noopener">Abrir em página inteira <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="ceua-guia-embed-shell">
+        <iframe title="${CFG.TITULO}" src="${CFG.URL}" loading="lazy" style="height:${CFG.ALTURA_INICIAL}px"></iframe>
+      </div>
+    `;
+
+    ancora.before(bloco);
+
+    const frame = bloco.querySelector('iframe');
+    let ultimaAltura = CFG.ALTURA_INICIAL;
+
+    /* Altura real do conteúdo de um documento.
+       A medida sai do <body>, e não de documentElement.scrollHeight: este
+       último nunca fica menor que a janela do próprio iframe, e o container
+       só cresceria, nunca encolheria ao trocar para uma aba mais curta. */
+    function alturaDe(doc) {
+      if (!doc || !doc.body) return 0;
+      const corpo = doc.body;
+      const janela = doc.defaultView;
+      let margens = 0;
+      if (janela && janela.getComputedStyle) {
+        const estilo = janela.getComputedStyle(corpo);
+        margens = (parseFloat(estilo.marginTop) || 0) + (parseFloat(estilo.marginBottom) || 0);
+      }
+      return Math.ceil(margens + Math.max(
+        corpo.getBoundingClientRect().height,
+        corpo.scrollHeight,
+        corpo.offsetHeight
+      ));
+    }
+
+    /* Documento do iframe, ou null se o navegador não deixar ler. */
+    function documento() {
+      try {
+        return frame.contentDocument || null;
+      } catch (erro) {
+        return null;
+      }
+    }
+
+    /* Se a página embutida tiver iframes dentro dela (é o caso do índice de
+       formulários), estes também crescem até a altura do próprio conteúdo,
+       para não sobrar barra de rolagem interna. */
+    function expandirInternos(doc, profundidade) {
+      if (!doc || profundidade > 2) return;
+      doc.querySelectorAll('iframe').forEach(function (interno) {
+        let dentro;
+        try {
+          dentro = interno.contentDocument;
+        } catch (erro) {
+          return;
+        }
+        if (!dentro || !dentro.body) return;
+        expandirInternos(dentro, profundidade + 1);
+        const h = alturaDe(dentro);
+        if (h > 0 && Math.abs(h - interno.offsetHeight) > 1) interno.style.height = h + 'px';
+      });
+    }
+
+    function ajustarAltura() {
+      const doc = documento();
+      if (!doc || !doc.body) return;
+      expandirInternos(doc, 0);
+      const altura = Math.max(CFG.ALTURA_MINIMA, alturaDe(doc));
+      if (Math.abs(altura - ultimaAltura) > 1) {
+        ultimaAltura = altura;
+        frame.style.height = altura + 'px';
+      }
+    }
+
+    let agendado = false;
+    function agendarAjuste() {
+      if (agendado) return;
+      agendado = true;
+      /* setTimeout em vez de requestAnimationFrame: rAF não dispara em aba
+         de segundo plano, e o ajuste ficaria travado até o usuário voltar. */
+      setTimeout(function () {
+        agendado = false;
+        ajustarAltura();
+      }, 30);
+    }
+
+    function acompanhar() {
+      const doc = documento();
+
+      /* Página fora do ar ou trocada por um 404: o bloco some sem quebrar nada. */
+      if (doc && doc.body && CFG.CONFERE && !doc.querySelector(CFG.CONFERE)) {
+        bloco.remove();
+        return;
+      }
+
+      /* Sem acesso ao conteúdo (outro domínio): mantém a altura inicial e a
+         rolagem própria do iframe. */
+      if (!doc || !doc.body) return;
+
+      ajustarAltura();
+
+      if (typeof ResizeObserver === 'function') {
+        const observador = new ResizeObserver(agendarAjuste);
+        observador.observe(doc.documentElement);
+        observador.observe(doc.body);
+      }
+
+      if (typeof MutationObserver === 'function') {
+        new MutationObserver(agendarAjuste).observe(doc.documentElement, {
+          attributes: true,
+          childList: true,
+          characterData: true,
+          subtree: true
+        });
+      }
+
+      /* Redundância barata: qualquer interação com abas, etapas, selects ou
+         acordeões dentro do guia dispara uma remedição. */
+      ['click', 'change', 'input', 'keyup', 'toggle'].forEach(function (evento) {
+        doc.addEventListener(evento, agendarAjuste, true);
+      });
+
+      /* Fontes e imagens que chegam depois do load também mudam a altura. */
+      if (doc.fonts && doc.fonts.ready && typeof doc.fonts.ready.then === 'function') {
+        doc.fonts.ready.then(agendarAjuste).catch(function () {});
+      }
+      [200, 600, 1400, 3000].forEach(function (espera) {
+        setTimeout(ajustarAltura, espera);
+      });
+    }
+
+    frame.addEventListener('load', acompanhar);
+    window.addEventListener('resize', agendarAjuste, { passive: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', montarGuia, { once: true });
+  } else {
+    montarGuia();
+  }
+})();
+/* ===================== FIM DO BLOCO REMOVÍVEL ===================== */
